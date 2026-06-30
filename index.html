@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+
+  <meta
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    name="viewport"
+  />
+
+  <title>James Kissi | Full-Stack Developer & Systems Builder</title>
+
+  <meta property="og:title" content="James Kissi | Full-Stack Developer & Systems Builder" />
+
+  <meta property="og:locale" content="en_US" />
+
+  <link
+    rel="canonical"
+    href="https://kissijames42@gmail.com/"
+  />
+
+  <meta
+    property="og:url"
+    content="https://kissijames42@gmail.com/"
+  />
+
+  <meta
+    name="description"
+    content="Full-Stack Developer & Systems Builder specializing in React, Node.js, Python, and modern web technologies."
+  />
+
+  
+
+  <meta name="theme-color" content="#2563eb" />
+
+  <meta property="og:site_name" content="James Kissi Portfolio" />
+
+  <meta property="og:image" content="//assets/img/social.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link
+    crossorigin="crossorigin"
+    href="https://fonts.gstatic.com"
+    rel="preconnect"
+  />
+
+  <link
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="preload"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+
+  <link
+    crossorigin="anonymous"
+    href="/assets/styles/main.min.css"
+    media="screen"
+    rel="stylesheet"
+  />
+  
+  <script
+    defer
+    src="https://unpkg.com/@alpine-collective/toolkit@1.0.0/dist/cdn.min.js"
+  ></script>
+
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  
+</head>
+
+
+  <body
+    :class="{ 'overflow-hidden max-h-screen': mobileMenu }"
+    class="relative"
+    x-data="{ mobileMenu: false }"
+  >
+    
+    <div id="main" class="relative">
+      <div
+  x-data="{
+    triggerNavItem(id) {
+        $scroll(id)
+    },
+    triggerMobileNavItem(id) {
+        mobileMenu = false;
+        this.triggerNavItem(id)
+    }
+}"
+>
+  <div class="w-full z-50 top-0 py-3 sm:py-5  absolute
+  ">
+  <div class="container flex items-center justify-between">
+    <div>
+      <a href="/">
+        <img src="/assets/img/logo.svg" class="w-24 lg:w-48" alt="logo image" />
+      </a>
+    </div>
+    <div class="hidden lg:block">
+      <ul class="flex items-center">
+        
+        <li class="group pl-6">
+          
+          <span
+            @click="triggerNavItem('#about')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >About</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+        
+        <li class="group pl-6">
+          
+          <span
+            @click="triggerNavItem('#services')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Services</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+        
+        <li class="group pl-6">
+          
+          <span
+            @click="triggerNavItem('#portfolio')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Portfolio</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+        
+        <li class="group pl-6">
+          
+          <span
+            @click="triggerNavItem('#statistics')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Statistics</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+        
+        <li class="group pl-6">
+          
+          <span
+            @click="triggerNavItem('#contact')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Contact</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+        
+      </ul>
+    </div>
+    <div class="block lg:hidden">
+      <button @click="mobileMenu = true">
+        <i class="bx bx-menu text-4xl text-white"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden"
+  :class="{ 'opacity-100 pointer-events-auto': mobileMenu }"
+>
+  <div
+    class="absolute right-0 min-h-screen w-2/3 bg-primary py-4 px-8 shadow md:w-1/3"
+  >
+    <button
+      class="absolute top-0 right-0 mt-4 mr-4"
+      @click="mobileMenu = false"
+    >
+      <img src="/assets/img/icon-close.svg" class="h-10 w-auto" alt="" />
+    </button>
+
+    <ul class="mt-8 flex flex-col">
+      
+      <li class="py-2">
+        
+        <span
+          @click="triggerMobileNavItem('#about')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >About</span
+        >
+        
+      </li>
+      
+      <li class="py-2">
+        
+        <span
+          @click="triggerMobileNavItem('#services')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >Services</span
+        >
+        
+      </li>
+      
+      <li class="py-2">
+        
+        <span
+          @click="triggerMobileNavItem('#portfolio')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >Portfolio</span
+        >
+        
+      </li>
+      
+      <li class="py-2">
+        
+        <span
+          @click="triggerMobileNavItem('#statistics')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >Statistics</span
+        >
+        
+      </li>
+      
+      <li class="py-2">
+        
+        <span
+          @click="triggerMobileNavItem('#contact')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >Contact</span
+        >
+        
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+      <div><div
+  class="relative bg-cover bg-center bg-no-repeat py-8"
+  style="background-image: url(/assets/img/bg-hero.jpg)"
+>
+  <div
+    class="absolute inset-0 z-20 bg-gradient-to-r from-hero-gradient-from to-hero-gradient-to bg-cover bg-center bg-no-repeat"
+  ></div>
+
+  <div
+    class="container relative z-30 pt-20 pb-12 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32"
+  >
+    <div class="flex flex-col items-center justify-center lg:flex-row">
+      <div class="rounded-full border-8 border-primary shadow-xl">
+        <img
+          src="/assets/img/blog-author.png"
+          class="h-48 rounded-full sm:h-56"
+          alt="author"
+        />
+      </div>
+      <div class="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
+        <h1
+          class="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl"
+        >
+          Hello I'm James Kissi!
+        </h1>
+        <p class="text-center font-header text-xl text-white sm:text-left sm:text-2xl pt-2">
+          Full-Stack Developer & Systems Builder
+        </p>
+        <div
+          class="flex flex-col justify-center pt-3 sm:flex-row sm:pt-5 lg:justify-start"
+        >
+          <div
+            class="flex items-center justify-center pl-0 sm:justify-start md:pl-1"
+          >
+            <p class="font-body text-lg uppercase text-white">Let's connect</p>
+            <div class="hidden sm:block">
+              <i class="bx bx-chevron-right text-3xl text-yellow"></i>
+            </div>
+          </div>
+          <div
+            class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0"
+          >
+            <a href="https://github.com/Nexify815" target="_blank">
+              <i
+                class="bx bxl-github text-2xl text-white hover:text-yellow"
+              ></i>
+            </a>
+            <a href="https://www.linkedin.com/in/james-kissi-80b7232a4/" target="_blank" class="pl-4">
+              <i
+                class="bx bxl-linkedin text-2xl text-white hover:text-yellow"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-grey-50" id="about">
+  <div class="container flex flex-col items-center py-16 md:py-20 lg:flex-row">
+    <div class="w-full text-center sm:w-3/4 lg:w-3/5 lg:text-left">
+      <h2
+        class="font-header text-3xl font-semibold uppercase text-primary sm:text-4xl lg:text-5xl"
+      >
+        Who am I?
+      </h2>
+      <h4
+        class="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+      >
+        Full-Stack Developer & Systems Builder
+      </h4>
+      <p class="pt-6 font-body leading-relaxed text-grey-20">
+        I build robust, scalable systems and applications from the ground up. 
+        With expertise spanning React, Node.js, Python, and modern JavaScript, 
+        I craft end-to-end solutions that are clean, performant, and maintainable. 
+        Whether it's a dynamic web app or a complex backend system, 
+        I bring ideas to life with code.
+      </p>
+      <div
+        class="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start"
+      >
+        <div class="flex items-center justify-center sm:justify-start">
+          <p class="font-body text-lg font-semibold uppercase text-grey-20">
+            Connect with me
+          </p>
+          <div class="hidden sm:block">
+            <i class="bx bx-chevron-right text-2xl text-primary"></i>
+          </div>
+        </div>
+        <div
+          class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0"
+        >
+          <a href="https://github.com/Nexify815" target="_blank">
+            <i
+              class="bx bxl-github text-2xl text-primary hover:text-yellow"
+            ></i>
+          </a>
+          <a href="https://www.linkedin.com/in/james-kissi-80b7232a4/" target="_blank" class="pl-4">
+            <i
+              class="bx bxl-linkedin text-2xl text-primary hover:text-yellow"
+            ></i>
+          </a>
+        </div>
+      </div>
+      <div class="pt-6">
+        <a
+          href="/assets/img/resume.pdf"
+          class="inline-block rounded bg-primary px-6 py-3 font-header text-sm font-bold uppercase text-white hover:bg-grey-20"
+        >
+          Download Resume
+        </a>
+      </div>
+    </div>
+    <div class="w-full pl-0 pt-10 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0">
+      <h3 class="font-body text-lg font-semibold uppercase text-black mb-4">Technologies I work with</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Google Apps Script</span>
+        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Node.js</span>
+        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">React</span>
+        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Python</span>
+        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">JavaScript</span>
+        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">HTML & CSS</span>
+        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Databases</span>
+        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Automation</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-16 md:py-20" id="services">
+  <h2
+    class="text-center font-header text-3xl font-semibold uppercase text-primary sm:text-4xl lg:text-5xl"
+  >
+    Here's what I'm good at
+  </h2>
+  <h3
+    class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+  >
+    These are the services I offer
+  </h3>
+
+  <div
+    class="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3"
+  >
+    <div class="group rounded px-8 py-12 shadow-md hover:bg-primary">
+      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+        <div class="hidden group-hover:block">
+          <img
+            src="/assets/img/icon-development-white.svg"
+            alt="development icon"
+          />
+        </div>
+        <div class="block group-hover:hidden">
+          <img
+            src="/assets/img/icon-development-black.svg"
+            alt="development icon"
+          />
+        </div>
+      </div>
+      <div class="text-center">
+        <h3
+          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+        >
+          Web Development
+        </h3>
+        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+          Full-stack applications built with React, Node.js, and modern JavaScript — from dynamic frontends to robust APIs and backends.
+        </p>
+      </div>
+    </div>
+    <div class="group rounded px-8 py-12 shadow-md hover:bg-primary">
+      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+        <div class="hidden group-hover:block">
+          <img
+            src="/assets/img/icon-graphics-white.svg"
+            alt="architecture icon"
+          />
+        </div>
+        <div class="block group-hover:hidden">
+          <img
+            src="/assets/img/icon-graphics-black.svg"
+            alt="architecture icon"
+          />
+        </div>
+      </div>
+      <div class="text-center">
+        <h3
+          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+        >
+          System Architecture
+        </h3>
+        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+          Scalable, maintainable system design — databases, microservices, cloud infrastructure, and end-to-end architecture planning.
+        </p>
+      </div>
+    </div>
+    <div class="group rounded px-8 py-12 shadow-md hover:bg-primary">
+      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+        <div class="hidden group-hover:block">
+          <img
+            src="/assets/img/icon-content-white.svg"
+            alt="consulting icon"
+          />
+        </div>
+        <div class="block group-hover:hidden">
+          <img
+            src="/assets/img/icon-content-black.svg"
+            alt="consulting icon"
+          />
+        </div>
+      </div>
+      <div class="text-center">
+        <h3
+          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+        >
+          Consulting
+        </h3>
+        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
+          Technical guidance, code reviews, architecture reviews, and strategic advice to help you ship better software faster.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-16 md:py-20" id="portfolio">
+  <h2
+    class="text-center font-header text-3xl font-semibold uppercase text-primary sm:text-4xl lg:text-5xl"
+  >
+    Check out my Portfolio
+  </h2>
+  <h3
+    class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+  >
+    Here's what I've built
+  </h3>
+
+  <div
+    class="mx-auto grid w-full grid-cols-1 gap-8 pt-12 sm:w-3/4 md:gap-10 lg:w-full lg:grid-cols-2"
+  >
+    <a
+      href="https://github.com/Nexify815"
+      target="_blank"
+      class="group block overflow-hidden rounded shadow-md"
+    >
+      <div class="relative overflow-hidden bg-grey-50">
+        <img
+          src="/assets/img/portfolio-01.jpg"
+          alt="LAN Exams Maker"
+          class="w-full"
+          onerror="this.style.display='none'"
+        />
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100" style="background-color: rgba(37, 99, 235, 0.9)">
+          <span class="font-header text-lg font-bold uppercase text-white">View Project</span>
+        </div>
+      </div>
+      <div class="bg-white p-5">
+        <h4 class="font-header text-xl font-bold text-primary">Offline-First LAN Examination System</h4>
+        <p class="font-body text-grey-20 pt-2 text-base">A digital assessment platform, self-hosted and designed to deploy and manage examinations completely without external internet. It has an intelligent bulk-import engine for handling standardized Excel/CSV student lists, complex question banks. The system provides sandboxed, secure assessments to any device on the local network, grading locally and in real time.</p>
+      </div>
+    </a>
+    <a
+      href="https://github.com/Nexify815/student-report-automation"
+      target="_blank"
+      class="group block overflow-hidden rounded shadow-md"
+    >
+      <div class="relative overflow-hidden bg-grey-50">
+        <img
+          src="/assets/img/assessment-downloader.png"
+          alt="Student Report Automation"
+          class="w-full"
+          onerror="this.style.display='none'"
+        />
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100" style="background-color: rgba(37, 99, 235, 0.9)">
+          <span class="font-header text-lg font-bold uppercase text-white">View Project</span>
+        </div>
+      </div>
+      <div class="bg-white p-5">
+        <h4 class="font-header text-xl font-bold text-primary">Student Report Automation & PDF Export</h4>
+        <p class="font-body text-grey-20 pt-2 text-base">Generates formatted STEM assessment report cards from Google Sheets and exports them as PDFs to Google Drive. Batch processing with time-based triggers handles the 6-minute Apps Script execution limit. Configurable for any school — just swap logo and folder IDs in the config cells.</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div
+  class="bg-primary pb-16 md:py-16 lg:py-24"
+  id="statistics"
+>
+  <div class="container">
+    <div
+      class="mx-auto w-5/6 bg-white py-16 shadow md:w-11/12 lg:py-20 xl:py-24 2xl:w-full"
+    >
+      <div class="grid grid-cols-2 gap-5 md:gap-8 xl:grid-cols-4 xl:gap-5">
+        <div
+          class="flex flex-col items-center justify-center text-center md:flex-row md:text-left"
+        >
+          <div>
+            <img
+              src="/assets/img/icon-project.svg"
+              class="mx-auto h-12 w-auto md:h-20"
+              alt="icon project"
+            />
+          </div>
+          <div class="pt-5 md:pl-5 md:pt-0">
+            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+              2
+            </h1>
+            <h4
+              class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl"
+            >
+              Projects Built
+            </h4>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-center text-center md:flex-row md:text-left"
+        >
+          <div>
+            <img
+              src="/assets/img/icon-award.svg"
+              class="mx-auto h-12 w-auto md:h-20"
+              alt="icon award"
+            />
+          </div>
+          <div class="pt-5 md:pl-5 md:pt-0">
+            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+              2
+            </h1>
+            <h4
+              class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl"
+            >
+              Awards Won
+            </h4>
+          </div>
+        </div>
+
+        <div
+          class="mt-6 flex flex-col items-center justify-center text-center md:mt-10 md:flex-row md:text-left lg:mt-0"
+        >
+          <div>
+            <img
+              src="/assets/img/icon-happy.svg"
+              class="mx-auto h-12 w-auto md:h-20"
+              alt="icon happy clients"
+            />
+          </div>
+          <div class="pt-5 md:pl-5 md:pt-0">
+            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+              6+
+            </h1>
+            <h4
+              class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl"
+            >
+              Schools Served
+            </h4>
+          </div>
+        </div>
+
+        <div
+          class="mt-6 flex flex-col items-center justify-center text-center md:mt-10 md:flex-row md:text-left lg:mt-0"
+        >
+          <div>
+            <img
+              src="/assets/img/icon-puzzle.svg"
+              class="mx-auto h-12 w-auto md:h-20"
+              alt="icon puzzle"
+            />
+          </div>
+          <div class="pt-5 md:pl-5 md:pt-0">
+            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+              1000+
+            </h1>
+            <h4
+              class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl"
+            >
+              Reports Generated
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container py-16 md:py-20" id="contact">
+  <h2
+    class="text-center font-header text-3xl font-semibold uppercase text-primary sm:text-4xl lg:text-5xl"
+  >
+    Here's a contact form
+  </h2>
+  <h4
+    class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+  >
+    Have Any Questions?
+  </h4>
+  <div class="mx-auto w-full pt-5 text-center sm:w-2/3 lg:pt-6">
+    <p class="font-body text-grey-10">
+      Have a project in mind, want to collaborate, or just want to say hello? 
+      Drop me a message and I'll get back to you as soon as possible.
+    </p>
+  </div>
+  <form class="mx-auto w-full pt-10 sm:w-3/4" action="mailto:kissijames42@gmail.com" method="post" enctype="text/plain">
+    <div class="flex flex-col md:flex-row">
+      <input
+        class="mr-3 w-full rounded border border-grey-70 px-4 py-3 font-body text-black md:w-1/2 lg:mr-5"
+        placeholder="Name"
+        type="text"
+        name="name"
+        required
+      />
+      <input
+        class="mt-6 w-full rounded border border-grey-70 px-4 py-3 font-body text-black md:mt-0 md:ml-3 md:w-1/2 lg:ml-5"
+        placeholder="Email"
+        type="email"
+        name="email"
+        required
+      />
+    </div>
+    <textarea
+      class="mt-6 w-full rounded border border-grey-70 px-4 py-3 font-body text-black md:mt-8"
+      placeholder="Message"
+      name="message"
+      cols="30"
+      rows="10"
+      required
+    ></textarea>
+    <button
+      class="mt-6 flex items-center justify-center rounded bg-primary px-8 py-3 font-header text-lg font-bold uppercase text-white hover:bg-grey-20"
+      type="submit"
+    >
+      Send
+      <i class="bx bx-chevron-right relative -right-2 text-3xl"></i>
+    </button>
+  </form>
+  <div class="flex flex-col pt-16 lg:flex-row">
+    <div
+      class="w-full border-l-2 border-t-2 border-r-2 border-b-2 border-grey-60 px-6 py-6 sm:py-8 lg:w-1/2"
+    >
+      <div class="flex items-center">
+        <i class="bx bx-phone text-2xl text-grey-40"></i>
+        <p class="pl-2 font-body font-bold uppercase text-grey-40 lg:text-lg">
+          My Phone
+        </p>
+      </div>
+      <p class="pt-2 text-left font-body font-bold text-primary lg:text-lg">
+        +233 537 272 022
+      </p>
+    </div>
+    <div
+      class="w-full border-l-2 border-t-0 border-r-2 border-b-2 border-grey-60 px-6 py-6 sm:py-8 lg:w-1/2 lg:border-l-0 lg:border-t-2"
+    >
+      <div class="flex items-center">
+        <i class="bx bx-envelope text-2xl text-grey-40"></i>
+        <p class="pl-2 font-body font-bold uppercase text-grey-40 lg:text-lg">
+          My Email
+        </p>
+      </div>
+      <p class="pt-2 text-left font-body font-bold text-primary lg:text-lg">
+        kissijames42@gmail.com
+      </p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+      <div class="bg-primary">
+  <div class="container flex flex-col justify-between py-6 sm:flex-row">
+    <p class="text-center font-body text-white md:text-left">
+      &copy; Copyright 2026. James Kissi. All rights reserved.
+    </p>
+    <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
+      <a href="https://github.com/Nexify815" target="_blank">
+        <i
+          class="bx bxl-github text-2xl text-white hover:text-yellow"
+        ></i>
+      </a>
+      <a href="https://www.linkedin.com/in/james-kissi-80b7232a4/" target="_blank" class="pl-4">
+        <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <a href="#" class="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white shadow hover:bg-grey-20">
+      <i class="bx bx-chevron-up text-2xl"></i>
+    </a>
+    <script src="/assets/js/main.js"></script>
+
+    
+  </body>
+</html>
