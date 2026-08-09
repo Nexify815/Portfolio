@@ -1,34 +1,25 @@
-# Atom - A vibrant portfolio template
-#### Preview
+# James Kissi — Portfolio
 
- - [Demo](https://themewagon.github.io/atom/)
+Personal portfolio of James Kissi, full-stack developer & systems builder.
 
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/atom/)
+## Stack
 
-## Getting Started
+- Static HTML + Tailwind CSS (via PostCSS)
+- Vercel for hosting
+- Browser-sync for local dev
 
-1. Clone Repository
-```
-git clone https://github.com/themewagon/atom.git
-```
-2. Install Dependencies
-```
-npm i
-```
-3. Run the development server:
+## Getting started
 
 ```bash
-npm serve .
+npm install
+npm run dev       # start the dev server
 ```
 
-## Author 
-```
-Design and code is completely written by Red Pixel Themes and development team. 
+## Build & deploy
+
+```bash
+npm run build     # production CSS build
 ```
 
-## License
-
- - Design and Code is Copyright &copy; <a href="https://redpixelthemes.gumroad.com/" target="_blank">Red Pixel Themes</a>
- - Licensed cover under [MIT]
- - Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+The site deploys to Vercel (see `vercel.json`); pushes to the repo's
+`master` branch trigger a production deployment.
