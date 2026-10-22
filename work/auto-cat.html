@@ -7,9 +7,9 @@
 
     <title>Auto Cat — Intelligent Downloads Organizer | James Kissi</title>
 
-    <meta name="description" content="A quiet, always-on service that files downloads where they belong &mdash; based on what is actually inside them." />
+    <meta name="description" content="A quiet, always-on filesystem service that waits for downloads to finish, reads what is inside them, and files them where they belong." />
     <meta property="og:title" content="Auto Cat — Intelligent Downloads Organizer" />
-    <meta property="og:description" content="A quiet, always-on service that files downloads where they belong &mdash; based on what is actually inside them." />
+    <meta property="og:description" content="A quiet, always-on filesystem service that waits for downloads to finish, reads what is inside them, and files them where they belong." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://portfolio-3r17-wheat.vercel.app/work/auto-cat.html" />
     <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/auto-cat.png" />
@@ -27,7 +27,7 @@
   <body class="relative bg-white">
     <header class="sticky top-0 z-40 border-b border-grey-60 bg-white">
       <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4">
-        <a href="/" aria-label="James Kissi — home">
+        <a href="/" aria-label="James Kissi &mdash; home">
           <img src="/assets/img/logo-dark.svg" class="w-20 lg:w-28" alt="James Kissi" />
         </a>
         <a
@@ -44,7 +44,7 @@
         <h1 class="mt-4 font-header text-3xl font-semibold leading-tight text-secondary sm:text-4xl lg:text-5xl">
           Auto Cat &mdash; Intelligent Downloads Organizer
         </h1>
-        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">A quiet, always-on service that files downloads where they belong &mdash; based on what is actually inside them.</p>
+        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">A quiet, always-on filesystem service that waits for downloads to finish, reads what is inside them, and files them where they belong.</p>
 
         <dl class="mt-9 grid grid-cols-1 gap-6 border-t border-grey-60 pt-7 sm:grid-cols-3">
           <div>
@@ -53,7 +53,7 @@
           </div>
           <div>
             <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Stack</dt>
-            <dd class="mt-1 font-body text-base font-semibold text-secondary">Python, Windows tray app</dd>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Python 3.11, Windows tray</dd>
           </div>
           <div>
             <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Platform</dt>
@@ -73,35 +73,39 @@
       <article class="mx-auto w-full max-w-3xl px-4 py-14 md:py-20">
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The problem</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Downloads folders rot. Every filing system that relies on remembering to file things fails, because the work has to happen at the moment you least want to do it.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Downloads folders rot because filing has to happen at the exact moment you least want to do it. Filenames rarely tell you what a file actually is, either.</p>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">What I built</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A filesystem service that watches a folder, waits until a file has finished downloading, then reads the PDF text to work out what the file is, renames it, and files it into the right folder.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A filesystem service that watches a folder, detects new files and browser temp-name to final renames, and waits until a file's size has been stable for a few seconds. It then identifies the file &mdash; reading PDF text to tell an invoice from a statement from a contract &mdash; and extracts the date and vendor to build a clean name.</p>
+          <ul class="mt-4 space-y-3">
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Wait-until-done.</strong> Partial .crdownload and .part files are ignored.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Content intelligence.</strong> PDF text decides the category and supplies the date and vendor for names like 2026_July_Acme_Power_Electric_Bill.pdf.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Rules-driven.</strong> Categories, keywords and extensions live in a commented config.yaml &mdash; no code changes to retune it.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Quiet by default,</strong> with an optional Windows tray icon and logon auto-start.</span></li>
+          </ul>
         </section>
 
         <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The tricky parts</h2>
-        <ul class="mt-4 space-y-3">
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Watching for completion.</strong> Moving a file mid-download corrupts it, so the service waits for the write to settle before touching it.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Identifying by content.</strong> Filenames are usually useless, so it reads the text inside the PDF rather than trusting the name.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Being reversible.</strong> Atomic moves plus a full undo history mean a wrong decision can always be undone.</span></li>
-        </ul>
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Safety model</h2>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Nothing is ever destroyed, and every move can be reverted.</p>
+          <ul class="mt-4 space-y-3">
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Same-volume moves are atomic renames; cross-volume moves copy, verify a SHA-256 hash, then delete the source.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Uncertain files are never touched &mdash; they stay in the watched folder.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Every action is logged with an id, and <strong>--undo &lt;id&gt;</strong> restores it, deduping instead of overwriting.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>--dry-run</strong> previews every decision without touching a file.</span></li>
+          </ul>
         </section>
 
         <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Decisions that mattered</h2>
-        <ul class="mt-4 space-y-3">
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Rules-driven config</strong> rather than a fixed set of folders.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Atomic moves,</strong> so a failure never leaves a half-moved file.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>A tray icon,</strong> because an always-on tool should be unobtrusive and easy to pause.</span></li>
-        </ul>
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Engineering</h2>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">The project ships with a test suite of 65 tests and Ruff for linting, plus a setup window that asks which folder to organise and writes the config.</p>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Outcome</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A downloads folder that stays organised without anyone remembering to organise it.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A downloads folder that stays organised without anyone remembering to organise it.</p>
         </section>
       </article>
 

@@ -7,9 +7,9 @@
 
     <title>Student Report Automation & PDF Export | James Kissi</title>
 
-    <meta name="description" content="Turns marks in a Google Sheet into formatted PDF report cards in Drive &mdash; in batches, on a schedule." />
+    <meta name="description" content="Generates termly STEM assessment report cards from Google Sheets and exports them as PDFs to Drive — in batches, within Apps Script's execution limit." />
     <meta property="og:title" content="Student Report Automation & PDF Export" />
-    <meta property="og:description" content="Turns marks in a Google Sheet into formatted PDF report cards in Drive &mdash; in batches, on a schedule." />
+    <meta property="og:description" content="Generates termly STEM assessment report cards from Google Sheets and exports them as PDFs to Drive — in batches, within Apps Script's execution limit." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://portfolio-3r17-wheat.vercel.app/work/student-reports.html" />
     <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/assessment-downloader.png" />
@@ -27,7 +27,7 @@
   <body class="relative bg-white">
     <header class="sticky top-0 z-40 border-b border-grey-60 bg-white">
       <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4">
-        <a href="/" aria-label="James Kissi — home">
+        <a href="/" aria-label="James Kissi &mdash; home">
           <img src="/assets/img/logo-dark.svg" class="w-20 lg:w-28" alt="James Kissi" />
         </a>
         <a
@@ -44,7 +44,7 @@
         <h1 class="mt-4 font-header text-3xl font-semibold leading-tight text-secondary sm:text-4xl lg:text-5xl">
           Student Report Automation &amp; PDF Export
         </h1>
-        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">Turns marks in a Google Sheet into formatted PDF report cards in Drive &mdash; in batches, on a schedule.</p>
+        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">Generates termly STEM assessment report cards from Google Sheets and exports them as PDFs to Drive &mdash; in batches, within Apps Script's execution limit.</p>
 
         <dl class="mt-9 grid grid-cols-1 gap-6 border-t border-grey-60 pt-7 sm:grid-cols-3">
           <div>
@@ -57,7 +57,7 @@
           </div>
           <div>
             <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Platform</dt>
-            <dd class="mt-1 font-body text-base font-semibold text-secondary">Cloud automation</dd>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Apps Script sidebar</dd>
           </div>
         </dl>
       </section>
@@ -73,31 +73,39 @@
       <article class="mx-auto w-full max-w-3xl px-4 py-14 md:py-20">
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The problem</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Report cards are repetitive, deadline-driven work. Producing them by hand for a whole year group invites inconsistent formatting and copy-paste errors &mdash; and the school already keeps its marks in spreadsheets.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">An educational robotics programme needed termly evaluation reports for every student &mdash; each with logos, nine assessment categories, colour-coded scores and a signature block. Producing those by hand is slow, inconsistent and easy to get wrong.</p>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">What I built</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A generator that reads assessment data from Google Sheets and produces formatted STEM report cards, exporting them as PDFs to Google Drive. It is configurable per school: swap the logo and folder IDs in config cells and it works for a different school.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">An Apps Script project bound to a &ldquo;Class Details&rdquo; sheet. A sidebar asks for the school name, term and batch size, then generates a formatted report sheet for each student and exports the finished PDFs to a chosen Drive folder.</p>
+          <ul class="mt-4 space-y-3">
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Student names, grades and scores across nine weighted criteria are read directly from the Class Details sheet.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Students are processed in configurable batches using time-based triggers, staying inside Apps Script's six-minute execution limit.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Each report is laid out with logos, score breakdowns with descriptions, colour-coded results and a signature section.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Generated batches export to PDF; source spreadsheets are trashed after a successful download.</span></li>
+          </ul>
         </section>
 
         <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The hard part</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Apps Script caps a single execution at roughly six minutes. A year group's worth of reports can exceed that, so generation runs in batches driven by time-based triggers, picking up where the last run stopped.</p>
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Assessment model</h2>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Nine criteria total 100 marks: Presentation Skills, Teamwork, Time Management, Engineering Design, Critical Thinking, Class Participation, Class Work and Homework at 10 each, plus the Assessment itself at 20.</p>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Decisions that mattered</h2>
-        <ul class="mt-4 space-y-3">
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Config cells instead of code edits,</strong> so a non-developer can point it at a new school.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Batched runs on triggers,</strong> to stay inside the platform's execution limit.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>PDF output into Drive,</strong> because that is how the reports are actually distributed.</span></li>
-        </ul>
+
+          <ul class="mt-4 space-y-3">
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Config cells instead of code edits.</strong> Five cells in the sheet (logo, signature, company logo, Drive folder and authority title) retarget the generator at another school.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Batched runs on triggers,</strong> because a single Apps Script execution cannot exceed six minutes.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>An observable long run.</strong> A progress bar, cancellation and a report-link view make a multi-batch job something you can watch.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>PDF into Drive,</strong> because that is how the reports are actually distributed.</span></li>
+          </ul>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Outcome</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Report generation runs unattended on a schedule instead of occupying a staff member for a day.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Termly reporting that runs from a sidebar instead of occupying an instructor for days.</p>
         </section>
       </article>
 

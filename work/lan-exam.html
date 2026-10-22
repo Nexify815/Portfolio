@@ -7,9 +7,9 @@
 
     <title>Offline-First LAN Examination System | James Kissi</title>
 
-    <meta name="description" content="A self-hosted exam platform that runs a whole school's assessment day with no internet connection at all." />
+    <meta name="description" content="A computer-based exam system for school computer labs that runs entirely on the local network — and is simple enough for non-technical teachers to operate." />
     <meta property="og:title" content="Offline-First LAN Examination System" />
-    <meta property="og:description" content="A self-hosted exam platform that runs a whole school's assessment day with no internet connection at all." />
+    <meta property="og:description" content="A computer-based exam system for school computer labs that runs entirely on the local network — and is simple enough for non-technical teachers to operate." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://portfolio-3r17-wheat.vercel.app/work/lan-exam.html" />
     <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/portfolio-01.jpg" />
@@ -27,7 +27,7 @@
   <body class="relative bg-white">
     <header class="sticky top-0 z-40 border-b border-grey-60 bg-white">
       <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4">
-        <a href="/" aria-label="James Kissi — home">
+        <a href="/" aria-label="James Kissi &mdash; home">
           <img src="/assets/img/logo-dark.svg" class="w-20 lg:w-28" alt="James Kissi" />
         </a>
         <a
@@ -44,7 +44,7 @@
         <h1 class="mt-4 font-header text-3xl font-semibold leading-tight text-secondary sm:text-4xl lg:text-5xl">
           Offline-First LAN Examination System
         </h1>
-        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">A self-hosted exam platform that runs a whole school's assessment day with no internet connection at all.</p>
+        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">A computer-based exam system for school computer labs that runs entirely on the local network &mdash; and is simple enough for non-technical teachers to operate.</p>
 
         <dl class="mt-9 grid grid-cols-1 gap-6 border-t border-grey-60 pt-7 sm:grid-cols-3">
           <div>
@@ -52,12 +52,12 @@
             <dd class="mt-1 font-body text-base font-semibold text-secondary">Design &amp; full-stack development</dd>
           </div>
           <div>
-            <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Deployment</dt>
-            <dd class="mt-1 font-body text-base font-semibold text-secondary">Self-hosted, LAN-only</dd>
+            <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Stack</dt>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Node.js, Express, Socket.io, SQLite</dd>
           </div>
           <div>
             <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Platform</dt>
-            <dd class="mt-1 font-body text-base font-semibold text-secondary">Web app for student devices</dd>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Self-hosted on a school LAN</dd>
           </div>
         </dl>
       </section>
@@ -73,36 +73,41 @@
       <article class="mx-auto w-full max-w-3xl px-4 py-14 md:py-20">
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The problem</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Assessment days are the worst possible time to depend on the internet. A school with unreliable connectivity cannot risk a cloud-hosted exam platform failing mid-paper, and paper exams bring their own problems: marking load, transcription errors, and results that take days.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">School computer labs often have the machines but not a reliable internet connection, and exam day is exactly when a dependency on the cloud is most dangerous. The system also has to be operable by teachers who are not technical.</p>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">What I built</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A digital assessment platform that is self-hosted and designed to deploy and manage examinations completely without external internet. It includes an intelligent bulk-import engine for standardised Excel/CSV student lists and complex question banks, and it serves sandboxed, secure assessments to any device on the local network, grading locally and in real time.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A computer-based examination system designed for school computer labs. It runs entirely offline within a local area network and covers the full exam lifecycle, from creating an exam to monitoring the room and grading the results.</p>
+          <ul class="mt-4 space-y-3">
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Teacher dashboard</strong> to create, manage and monitor exams.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Live student tracking</strong> over Socket.io, so the room is visible as it happens.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Three question types</strong> &mdash; multiple choice, true/false and short answer.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Auto-grading</strong> for objective questions, with instant results.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Import and export</strong> in CSV, Excel and JSON.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Exam integrity measures</strong> &mdash; fullscreen enforcement and tab-switch detection.</span></li>
+          </ul>
         </section>
 
         <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">How it works</h2>
-        <ul class="mt-4 space-y-3">
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Staff import student lists and question banks in bulk from Excel/CSV, matched to the formats schools already use.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>The server runs on the school's own network and issues assessment sessions to whatever devices are available.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Grading happens locally and immediately, so results do not wait on a round trip.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Sessions are sandboxed so candidates stay inside the paper.</span></li>
-        </ul>
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">How it is built</h2>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Express serves an EJS front end backed by SQLite through better-sqlite3, while Socket.io pushes live state to the teacher's dashboard. ExcelJS and PapaParse handle bulk imports, so staff can prepare students and questions in the spreadsheets they already use.</p>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Decisions that mattered</h2>
-        <ul class="mt-4 space-y-3">
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Offline-first as the core constraint, not a fallback.</strong> Every feature works without an external connection.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Bulk import over manual entry.</strong> A school's real data already lives in spreadsheets; the system should meet it there.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Local grading.</strong> The point of the system is results on the day, not later.</span></li>
-        </ul>
+
+          <ul class="mt-4 space-y-3">
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>SQLite over a server database.</strong> A single self-contained file travels with the install and needs no administration.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Socket.io for monitoring.</strong> The teacher sees the room live instead of refreshing a page.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Server-rendered EJS and vanilla JavaScript.</strong> The client stays light enough for older lab machines.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Fullscreen and tab-switch detection.</strong> An unsupervised digital exam needs guardrails.</span></li>
+          </ul>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Outcome</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">An assessment day that depends only on the local network &mdash; no internet, no third-party service, and no waiting for results.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A self-contained exam system a school can deploy on its own network and run without an internet connection at any point.</p>
         </section>
       </article>
 

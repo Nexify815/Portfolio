@@ -7,9 +7,9 @@
 
     <title>StudyBuddy — BECE Exam Prep | James Kissi</title>
 
-    <meta name="description" content="A gamified exam-prep PWA that gives Ghanaian Junior High students one clear next step." />
+    <meta name="description" content="A free, offline-first PWA that explains BECE exam vocabulary in plain language, then drills it with lessons, quizzes and real past papers." />
     <meta property="og:title" content="StudyBuddy — BECE Exam Prep" />
-    <meta property="og:description" content="A gamified exam-prep PWA that gives Ghanaian Junior High students one clear next step." />
+    <meta property="og:description" content="A free, offline-first PWA that explains BECE exam vocabulary in plain language, then drills it with lessons, quizzes and real past papers." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://portfolio-3r17-wheat.vercel.app/work/studybuddy.html" />
     <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/studybuddycover.png" />
@@ -27,7 +27,7 @@
   <body class="relative bg-white">
     <header class="sticky top-0 z-40 border-b border-grey-60 bg-white">
       <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4">
-        <a href="/" aria-label="James Kissi — home">
+        <a href="/" aria-label="James Kissi &mdash; home">
           <img src="/assets/img/logo-dark.svg" class="w-20 lg:w-28" alt="James Kissi" />
         </a>
         <a
@@ -44,7 +44,7 @@
         <h1 class="mt-4 font-header text-3xl font-semibold leading-tight text-secondary sm:text-4xl lg:text-5xl">
           StudyBuddy &mdash; BECE Exam Prep
         </h1>
-        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">A gamified exam-prep PWA that gives Ghanaian Junior High students one clear next step.</p>
+        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">A free, offline-first PWA that explains BECE exam vocabulary in plain language, then drills it with lessons, quizzes and real past papers.</p>
 
         <dl class="mt-9 grid grid-cols-1 gap-6 border-t border-grey-60 pt-7 sm:grid-cols-3">
           <div>
@@ -53,7 +53,7 @@
           </div>
           <div>
             <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Stack</dt>
-            <dd class="mt-1 font-body text-base font-semibold text-secondary">React, Vite, Firebase</dd>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">React 18, Vite, Firebase</dd>
           </div>
           <div>
             <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Platform</dt>
@@ -77,26 +77,38 @@
       <article class="mx-auto w-full max-w-3xl px-4 py-14 md:py-20">
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The problem</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">BECE revision material is often dense, and the students who need it most are the least equipped to navigate it. With limited connectivity and shared devices, a revision tool has to work offline and tell the student exactly what to do next.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">BECE revision material is dense, and students preparing on shared phones with weak connections cannot rely on always-online resources. They need something that works offline and tells them exactly what to do next.</p>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">What I built</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">An offline-first PWA covering 7 subjects, 500+ glossary terms explained in plain language, step-by-step learning paths, gamified quizzes, and real past-paper questions from 2023 to 2025.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A free revision app covering seven subjects: Mathematics, Integrated Science, English Language, Social Studies, French, ICT and Ghanaian Language (Akan).</p>
+          <ul class="mt-4 space-y-3">
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>745 glossary terms,</strong> each with a plain-language definition, example and difficulty level.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>A stairs path per subject.</strong> Every lesson ends in a mini-quiz, with a summit mega-quiz at the top.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Four question types</strong> &mdash; multiple choice, true/false, fill-the-blank and matching &mdash; at easy, medium and hard levels.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Real BECE past papers</strong> from 2023 to 2025, with year selection and timed practice.</span></li>
+          </ul>
         </section>
 
         <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Design decisions</h2>
-        <ul class="mt-4 space-y-3">
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>One clear next step.</strong> Every screen answers what to do right now, instead of presenting a content dump.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Progress you can feel.</strong> XP, streaks, hearts and weekly leagues borrow the grammar of games students already play, aimed at consistency rather than cramming.</span></li>
-          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Built for a phone on a weak connection.</strong> A mobile-first layout and a service worker keep the app usable offline.</span></li>
-        </ul>
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Content and design</h2>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">The curriculum follows the official NaCCA Common Core Programme for B7&ndash;B9, and the content lives in JSON so it can grow without touching code.</p>
+          <ul class="mt-4 space-y-3">
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>One clear next step.</strong> The stairs make the next lesson obvious rather than presenting a content dump.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Progress you can feel.</strong> XP and levels, daily streaks, hearts, earnable themes in a store, and a progress report you can print or save.</span></li>
+            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Offline first.</strong> A service worker and device-local progress keep the app usable with no connection after the first load.</span></li>
+          </ul>
+        </section>
+
+        <section class="mt-11 first:mt-0">
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">How it is built</h2>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">React 18 with Vite and hash-based routing, which stays robust on a static host with no server. Progress is saved on the device, with Firebase handling accounts and backup. It deploys to Vercel on every push to master.</p>
         </section>
 
         <section class="mt-11 first:mt-0">
           <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Outcome</h2>
-        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A revision app a student can open on a weak connection and use without having to decide where to start.</p>
+          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A revision app that opens on a weak connection and tells a student what to do next.</p>
         </section>
       </article>
 
