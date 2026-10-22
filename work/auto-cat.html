@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+
+    <title>Auto Cat — Intelligent Downloads Organizer | James Kissi</title>
+
+    <meta name="description" content="A quiet, always-on service that files downloads where they belong &mdash; based on what is actually inside them." />
+    <meta property="og:title" content="Auto Cat — Intelligent Downloads Organizer" />
+    <meta property="og:description" content="A quiet, always-on service that files downloads where they belong &mdash; based on what is actually inside them." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://portfolio-3r17-wheat.vercel.app/work/auto-cat.html" />
+    <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/auto-cat.png" />
+    <meta property="og:site_name" content="James Kissi Portfolio" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="canonical" href="https://portfolio-3r17-wheat.vercel.app/work/auto-cat.html" />
+    <link crossorigin="crossorigin" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link crossorigin="anonymous" href="/assets/styles/main.min.css" media="screen" rel="stylesheet" />
+  </head>
+
+  <body class="relative bg-white">
+    <header class="sticky top-0 z-40 border-b border-grey-60 bg-white">
+      <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4">
+        <a href="/" aria-label="James Kissi — home">
+          <img src="/assets/img/logo-dark.svg" class="w-20 lg:w-28" alt="James Kissi" />
+        </a>
+        <a
+          href="/#portfolio"
+          class="font-header text-xs font-bold uppercase tracking-widest text-primary hover:text-secondary sm:text-sm"
+          >&larr; All projects</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <section class="mx-auto w-full max-w-5xl px-4 pb-10 pt-14 md:pt-20">
+        <p class="font-header text-xs font-bold uppercase tracking-widest text-primary">Case study</p>
+        <h1 class="mt-4 font-header text-3xl font-semibold leading-tight text-secondary sm:text-4xl lg:text-5xl">
+          Auto Cat &mdash; Intelligent Downloads Organizer
+        </h1>
+        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">A quiet, always-on service that files downloads where they belong &mdash; based on what is actually inside them.</p>
+
+        <dl class="mt-9 grid grid-cols-1 gap-6 border-t border-grey-60 pt-7 sm:grid-cols-3">
+          <div>
+            <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Role</dt>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Design &amp; development</dd>
+          </div>
+          <div>
+            <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Stack</dt>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Python, Windows tray app</dd>
+          </div>
+          <div>
+            <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Platform</dt>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Background desktop service</dd>
+          </div>
+        </dl>
+      </section>
+
+      <figure class="mx-auto w-full max-w-5xl px-4">
+        <img
+          src="/assets/img/auto-cat.png"
+          alt="Auto Cat downloads organizer"
+          class="w-full rounded shadow-md"
+        />
+      </figure>
+
+      <article class="mx-auto w-full max-w-3xl px-4 py-14 md:py-20">
+        <section class="mt-11 first:mt-0">
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The problem</h2>
+        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Downloads folders rot. Every filing system that relies on remembering to file things fails, because the work has to happen at the moment you least want to do it.</p>
+        </section>
+
+        <section class="mt-11 first:mt-0">
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">What I built</h2>
+        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A filesystem service that watches a folder, waits until a file has finished downloading, then reads the PDF text to work out what the file is, renames it, and files it into the right folder.</p>
+        </section>
+
+        <section class="mt-11 first:mt-0">
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The tricky parts</h2>
+        <ul class="mt-4 space-y-3">
+          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Watching for completion.</strong> Moving a file mid-download corrupts it, so the service waits for the write to settle before touching it.</span></li>
+          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Identifying by content.</strong> Filenames are usually useless, so it reads the text inside the PDF rather than trusting the name.</span></li>
+          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Being reversible.</strong> Atomic moves plus a full undo history mean a wrong decision can always be undone.</span></li>
+        </ul>
+        </section>
+
+        <section class="mt-11 first:mt-0">
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Decisions that mattered</h2>
+        <ul class="mt-4 space-y-3">
+          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Rules-driven config</strong> rather than a fixed set of folders.</span></li>
+          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Atomic moves,</strong> so a failure never leaves a half-moved file.</span></li>
+          <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>A tray icon,</strong> because an always-on tool should be unobtrusive and easy to pause.</span></li>
+        </ul>
+        </section>
+
+        <section class="mt-11 first:mt-0">
+          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Outcome</h2>
+        <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A downloads folder that stays organised without anyone remembering to organise it.</p>
+        </section>
+      </article>
+
+      <nav class="mx-auto w-full max-w-5xl px-4 pb-16" aria-label="Project navigation">
+        <div class="flex flex-col gap-4 border-t border-grey-60 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <a
+            href="/#portfolio"
+            class="font-header text-sm font-bold uppercase tracking-widest text-grey-40 hover:text-primary"
+            >&larr; All projects</a
+          >
+          <a href="/work/studybuddy.html" class="group text-left sm:text-right">
+            <span class="block font-header text-xs font-bold uppercase tracking-widest text-grey-40">Next project</span>
+            <span class="mt-1 block font-header text-lg font-semibold text-secondary group-hover:text-primary"
+              >StudyBuddy &mdash; BECE Exam Prep</span
+            >
+          </a>
+        </div>
+      </nav>
+    </main>
+
+    <div class="bg-primary">
+      <div class="container flex flex-col justify-between py-6 sm:flex-row">
+        <p class="text-center font-body text-white md:text-left">
+          &copy; Copyright 2026. James Kissi. All rights reserved.
+        </p>
+        <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
+          <a href="https://github.com/Nexify815" target="_blank" rel="noreferrer">
+            <i class="bx bxl-github text-2xl text-white hover:text-yellow"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/james-kissi-80b7232a4/" target="_blank" rel="noreferrer" class="pl-4">
+            <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
