@@ -39,6 +39,63 @@
       .screens-carousel::-webkit-scrollbar {
         display: none;
       }
+      .screens-carousel-wrap {
+        position: relative;
+        margin-top: 28px;
+      }
+      .screens-carousel-wrap .screens-carousel {
+        margin-top: 0;
+      }
+      .screens-carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 9999px;
+        background: rgba(17, 24, 39, 0.92);
+        color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.22);
+        transition: background 160ms ease, opacity 160ms ease, transform 160ms ease;
+      }
+      .screens-carousel-btn:hover:not(:disabled) {
+        background: #2563eb;
+      }
+      .screens-carousel-btn:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+      .screens-carousel-btn.prev {
+        left: -6px;
+      }
+      .screens-carousel-btn.next {
+        right: -6px;
+      }
+      .screens-carousel-btn i {
+        font-size: 28px;
+        line-height: 1;
+      }
+      @media (max-width: 767px) {
+        .screens-carousel-btn {
+          width: 38px;
+          height: 38px;
+        }
+        .screens-carousel-btn.prev {
+          left: 2px;
+        }
+        .screens-carousel-btn.next {
+          right: 2px;
+        }
+        .screens-carousel-btn i {
+          font-size: 24px;
+        }
+      }
       .screen-card {
         flex: 0 0 min(86%, 560px);
         scroll-snap-align: center;
@@ -121,31 +178,35 @@
 
       <section class="mx-auto w-full max-w-4xl px-4 pb-2 pt-12 md:pt-14">
         <h2 class="font-header text-2xl font-semibold text-secondary sm:text-3xl">Screens</h2>
-        <div class="screens-carousel" aria-label="Project screenshots">
-          <figure class="screen-card">
-            <img
-              src="/assets/img/work/student-reports/generated-report.png"
-              alt="Generated report sheet"
-              loading="lazy"
-            />
-            <figcaption><strong>Generated report sheet.</strong> One tab per student, with all nine criteria, their descriptions and colour-coded scores.</figcaption>
-          </figure>
-          <figure class="screen-card">
-            <img
-              src="/assets/img/work/student-reports/report-card-1.png"
-              alt="Report card, page 1"
-              loading="lazy"
-            />
-            <figcaption><strong>Report card, page 1.</strong> The exported PDF opens with the school header, student details and the first five criteria.</figcaption>
-          </figure>
-          <figure class="screen-card">
-            <img
-              src="/assets/img/work/student-reports/report-card-2.png"
-              alt="Report card, page 2"
-              loading="lazy"
-            />
-            <figcaption><strong>Report card, page 2.</strong> The remaining criteria, the total out of 100 and the signature block.</figcaption>
-          </figure>
+        <div class="screens-carousel-wrap">
+          <button type="button" class="screens-carousel-btn prev" aria-label="Previous screenshot"><i class="bx bx-chevron-left" aria-hidden="true"></i></button>
+          <div class="screens-carousel" aria-label="Project screenshots">
+            <figure class="screen-card">
+              <img
+                src="/assets/img/work/student-reports/generated-report.png"
+                alt="Generated report sheet"
+                loading="lazy"
+              />
+              <figcaption><strong>Generated report sheet.</strong> One tab per student, with all nine criteria, their descriptions and colour-coded scores.</figcaption>
+            </figure>
+            <figure class="screen-card">
+              <img
+                src="/assets/img/work/student-reports/report-card-1.png"
+                alt="Report card, page 1"
+                loading="lazy"
+              />
+              <figcaption><strong>Report card, page 1.</strong> The exported PDF opens with the school header, student details and the first five criteria.</figcaption>
+            </figure>
+            <figure class="screen-card">
+              <img
+                src="/assets/img/work/student-reports/report-card-2.png"
+                alt="Report card, page 2"
+                loading="lazy"
+              />
+              <figcaption><strong>Report card, page 2.</strong> The remaining criteria, the total out of 100 and the signature block.</figcaption>
+            </figure>
+          </div>
+          <button type="button" class="screens-carousel-btn next" aria-label="Next screenshot"><i class="bx bx-chevron-right" aria-hidden="true"></i></button>
         </div>
       </section>
 
@@ -220,5 +281,6 @@
         </div>
       </div>
     </div>
+    <script src="/assets/js/screens-carousel.js"></script>
   </body>
 </html>
