@@ -42,6 +42,11 @@
 
     function applyTransform() {
       img.style.transform = "translate(" + tx + "px, " + ty + "px) scale(" + scale + ")";
+      if (scale > 1) {
+        lightbox.classList.add("is-zoomed");
+      } else {
+        lightbox.classList.remove("is-zoomed");
+      }
     }
 
     function resetView() {
@@ -49,6 +54,7 @@
       tx = 0;
       ty = 0;
       stage.classList.remove("is-dragging");
+      lightbox.classList.remove("is-zoomed");
       applyTransform();
     }
 
@@ -116,10 +122,7 @@
         return;
       }
       if (e.target.closest(".screen-lightbox-controls, .screen-lightbox-caption")) return;
-      if (e.target.closest(".screen-lightbox-img")) {
-        if (scale === 1) close();
-        return;
-      }
+      if (scale > 1 && e.target.closest(".screen-lightbox-img")) return;
       close();
     });
 
