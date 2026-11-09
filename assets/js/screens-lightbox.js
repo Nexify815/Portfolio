@@ -110,7 +110,8 @@
         if (action === "reset") resetView();
         return;
       }
-      if (e.target === lightbox) close();
+      if (e.target.closest(".screen-lightbox-img, .screen-lightbox-controls, .screen-lightbox-caption")) return;
+      close();
     });
 
     stage.addEventListener("wheel", function (e) {
