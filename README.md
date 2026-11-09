@@ -1,4 +1,4 @@
-# James Kissi — Portfolio
+# James Kissi Portfolio
 
 Personal portfolio of James Kissi, full-stack developer & systems builder.
 
