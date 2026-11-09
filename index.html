@@ -69,6 +69,112 @@
     media="screen"
     rel="stylesheet"
   />
+  <style>
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #1a5cff;
+      color: #fff;
+      padding: 28px;
+      min-height: 320px;
+      text-decoration: none;
+      transition: transform 180ms ease, filter 180ms ease;
+      font-family: Inter, Roboto, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    .project-card:hover {
+      transform: scale(1.02);
+      filter: brightness(1.06);
+    }
+    .project-card:focus-visible {
+      outline: 3px solid rgba(255, 255, 255, 0.7);
+      outline-offset: 3px;
+    }
+    .project-card .pc-shape {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .project-card .pc-shape-circle {
+      top: -64px;
+      right: -64px;
+      width: 230px;
+      height: 230px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .project-card .pc-shape-squircle {
+      top: 44%;
+      right: 22px;
+      width: 92px;
+      height: 92px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .project-card .pc-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .project-card .pc-top {
+      margin-top: 2px;
+    }
+    .project-card .pc-category {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0;
+    }
+    .project-card .pc-number {
+      font-size: clamp(44px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1;
+      color: #fff;
+      margin: 8px 0 0;
+    }
+    .project-card .pc-bottom {
+      margin-top: auto;
+      padding-top: 28px;
+    }
+    .project-card .pc-title {
+      font-size: clamp(22px, 2.2vw, 28px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #fff;
+      margin: 0;
+    }
+    .project-card .pc-subtitle {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 10px 0 0;
+    }
+    .project-card .pc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .project-card .pc-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 9999px;
+      background: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      padding: 7px 12px;
+    }
+  </style>
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
   <script
     defer
@@ -494,108 +600,100 @@
     Here's what I've built
   </h3>
 
-  <div
-    class="mx-auto grid w-full grid-cols-1 gap-8 pt-12 sm:w-3/4 md:gap-10 lg:w-full lg:grid-cols-2"
-  >
-    <a
-      href="/work/lan-exam.html"
-      class="group block overflow-hidden rounded shadow-md"
-    >
-      <div class="relative overflow-hidden bg-grey-50">
-        <img
-          src="/assets/img/portfolio-01.jpg"
-          alt="LAN Exams Maker"
-          class="w-full"
-          onerror="this.style.display='none'"
-        />
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100" style="background-color: rgba(37, 99, 235, 0.9)">
-          <span class="font-header text-lg font-bold uppercase text-white">Read case study</span>
-        </div>
-      </div>
-      <div class="bg-white p-5">
-        <h4 class="font-header text-xl font-bold text-primary">Offline-First LAN Examination System</h4>
-        <p class="font-body text-grey-20 pt-2 text-base">A computer-based exam system for school computer labs that runs entirely offline on the local network. Teachers create and monitor exams in real time over Socket.io, three question types are auto-graded, and student lists and question banks import from CSV, Excel or JSON. Exam integrity is enforced with fullscreen and tab-switch detection.</p>
-      </div>
+  <div class="mx-auto grid w-full grid-cols-1 gap-8 pt-12 sm:w-3/4 md:gap-10 lg:w-full sm:grid-cols-2 xl:grid-cols-3">
+    <a href="/work/lan-exam.html" class="project-card" aria-label="Open case study: Offline-First LAN Examination System">
+      <span class="pc-shape pc-shape-circle" aria-hidden="true"></span>
+      <span class="pc-shape pc-shape-squircle" aria-hidden="true"></span>
+      <span class="pc-content">
+        <span class="pc-top">
+          <p class="pc-category">Web App</p>
+          <p class="pc-number">01</p>
+        </span>
+        <span class="pc-bottom">
+          <h4 class="pc-title">Offline-First LAN Examination System</h4>
+          <p class="pc-subtitle">Runs entirely on a school LAN.</p>
+          <span class="pc-tags">
+            <span class="pc-tag">Node.js</span>
+            <span class="pc-tag">Socket.io</span>
+          </span>
+        </span>
+      </span>
     </a>
-    <a
-      href="/work/student-reports.html"
-      class="group block overflow-hidden rounded shadow-md"
-    >
-      <div class="relative overflow-hidden bg-grey-50">
-        <img
-          src="/assets/img/assessment-downloader.png"
-          alt="Student Report Automation"
-          class="w-full"
-          onerror="this.style.display='none'"
-        />
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100" style="background-color: rgba(37, 99, 235, 0.9)">
-          <span class="font-header text-lg font-bold uppercase text-white">Read case study</span>
-        </div>
-      </div>
-      <div class="bg-white p-5">
-        <h4 class="font-header text-xl font-bold text-primary">Student Report Automation & PDF Export</h4>
-        <p class="font-body text-grey-20 pt-2 text-base">Generates formatted STEM assessment report cards from Google Sheets and exports them as PDFs to Google Drive. Batch processing with time-based triggers handles the 6-minute Apps Script execution limit. Configurable for any school — just swap logo and folder IDs in the config cells.</p>
-      </div>
+
+    <a href="/work/student-reports.html" class="project-card" aria-label="Open case study: Student Report Automation and PDF Export">
+      <span class="pc-shape pc-shape-circle" aria-hidden="true"></span>
+      <span class="pc-shape pc-shape-squircle" aria-hidden="true"></span>
+      <span class="pc-content">
+        <span class="pc-top">
+          <p class="pc-category">Automation</p>
+          <p class="pc-number">02</p>
+        </span>
+        <span class="pc-bottom">
+          <h4 class="pc-title">Student Report Automation &amp; PDF Export</h4>
+          <p class="pc-subtitle">Generates report cards from Google Sheets to Drive.</p>
+          <span class="pc-tags">
+            <span class="pc-tag">Apps Script</span>
+            <span class="pc-tag">Google Sheets</span>
+          </span>
+        </span>
+      </span>
     </a>
-    <a
-      href="/work/chef-jhamin.html"
-      class="group block overflow-hidden rounded shadow-md"
-    >
-      <div class="relative overflow-hidden bg-grey-50">
-        <img
-          src="/assets/img/portfolio-03.png"
-          alt="Chef Jhamin's Kitchen Management System"
-          class="w-full"
-          onerror="this.style.display='none'"
-        />
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100" style="background-color: rgba(37, 99, 235, 0.9)">
-          <span class="font-header text-lg font-bold uppercase text-white">Read case study</span>
-        </div>
-      </div>
-      <div class="bg-white p-5">
-        <h4 class="font-header text-xl font-bold text-primary">Chef Jhamin's Kitchen Management System</h4>
-        <p class="font-body text-grey-20 pt-2 text-base">A full-stack restaurant management platform built with React, Express.js, and PostgreSQL. Features real-time sales tracking, inventory management with low-stock alerts, staff scheduling, expense tracking, customer/supplier CRM, purchase orders, role-based access control, and a full audit trail. Deployed on Render with PWA support for mobile install.</p>
-      </div>
+
+    <a href="/work/chef-jhamin.html" class="project-card" aria-label="Open case study: Chef Jhamin's Kitchen Management System">
+      <span class="pc-shape pc-shape-circle" aria-hidden="true"></span>
+      <span class="pc-shape pc-shape-squircle" aria-hidden="true"></span>
+      <span class="pc-content">
+        <span class="pc-top">
+          <p class="pc-category">Web App</p>
+          <p class="pc-number">03</p>
+        </span>
+        <span class="pc-bottom">
+          <h4 class="pc-title">Chef Jhamin&rsquo;s Kitchen Management System</h4>
+          <p class="pc-subtitle">Full-stack restaurant operations platform.</p>
+          <span class="pc-tags">
+            <span class="pc-tag">React</span>
+            <span class="pc-tag">PostgreSQL</span>
+          </span>
+        </span>
+      </span>
     </a>
-    <a
-      href="/work/auto-cat.html"
-      class="group block overflow-hidden rounded shadow-md"
-    >
-      <div class="relative overflow-hidden bg-grey-50">
-        <img
-          src="/assets/img/auto-cat.png"
-          alt="Auto Cat — Intelligent Downloads Organizer"
-          class="w-full"
-          onerror="this.style.display='none'"
-        />
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100" style="background-color: rgba(37, 99, 235, 0.9)">
-          <span class="font-header text-lg font-bold uppercase text-white">Read case study</span>
-        </div>
-      </div>
-      <div class="bg-white p-5">
-        <h4 class="font-header text-xl font-bold text-primary">Auto Cat — Intelligent Downloads Organizer</h4>
-        <p class="font-body text-grey-20 pt-2 text-base">A quiet, always-on filesystem service (Python) that watches a folder, waits until a file finishes downloading, reads PDF text to identify what it is, then renames and files it into the right folder. Rules-driven config, atomic safe moves, full undo, and a Windows tray icon.</p>
-      </div>
+
+    <a href="/work/auto-cat.html" class="project-card" aria-label="Open case study: Auto Cat Intelligent Downloads Organizer">
+      <span class="pc-shape pc-shape-circle" aria-hidden="true"></span>
+      <span class="pc-shape pc-shape-squircle" aria-hidden="true"></span>
+      <span class="pc-content">
+        <span class="pc-top">
+          <p class="pc-category">Desktop Tool</p>
+          <p class="pc-number">04</p>
+        </span>
+        <span class="pc-bottom">
+          <h4 class="pc-title">Auto Cat &mdash; Intelligent Downloads Organizer</h4>
+          <p class="pc-subtitle">Watches, classifies, and files downloads automatically.</p>
+          <span class="pc-tags">
+            <span class="pc-tag">Python</span>
+            <span class="pc-tag">Windows</span>
+          </span>
+        </span>
+      </span>
     </a>
-    <a
-      href="/work/studybuddy.html"
-      class="group block overflow-hidden rounded shadow-md"
-    >
-      <div class="relative overflow-hidden bg-grey-50">
-        <img
-          src="/assets/img/studybuddycover.png"
-          alt="StudyBuddy — BECE Exam Prep"
-          class="w-full"
-          onerror="this.style.display='none'"
-        />
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100" style="background-color: rgba(37, 99, 235, 0.9)">
-          <span class="font-header text-lg font-bold uppercase text-white">Read case study</span>
-        </div>
-      </div>
-      <div class="bg-white p-5">
-        <h4 class="font-header text-xl font-bold text-primary">StudyBuddy — BECE Exam Prep App</h4>
-        <p class="font-body text-grey-20 pt-2 text-base">A free, offline-first PWA that helps JHS students understand BECE exam vocabulary in plain language, then practise it. 7 subjects, 745 glossary terms, a stairs learning path with mini-quizzes and a summit test, plus real past-paper questions (2023–2025). Built with React + Vite, deployed on Vercel.</p>
-      </div>
+
+    <a href="/work/studybuddy.html" class="project-card" aria-label="Open case study: StudyBuddy BECE Exam Prep App">
+      <span class="pc-shape pc-shape-circle" aria-hidden="true"></span>
+      <span class="pc-shape pc-shape-squircle" aria-hidden="true"></span>
+      <span class="pc-content">
+        <span class="pc-top">
+          <p class="pc-category">PWA</p>
+          <p class="pc-number">05</p>
+        </span>
+        <span class="pc-bottom">
+          <h4 class="pc-title">StudyBuddy &mdash; BECE Exam Prep App</h4>
+          <p class="pc-subtitle">Offline-first revision for JHS students.</p>
+          <span class="pc-tags">
+            <span class="pc-tag">React</span>
+            <span class="pc-tag">Vite</span>
+          </span>
+        </span>
+      </span>
     </a>
   </div>
 </div>
