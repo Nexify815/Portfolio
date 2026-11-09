@@ -25,6 +25,7 @@
     <style>
       .screens-carousel {
         display: flex;
+        align-items: flex-start;
         gap: 20px;
         overflow-x: auto;
         overflow-y: hidden;
@@ -115,6 +116,94 @@
         width: 100%;
         height: auto;
         background: #0b1220;
+        cursor: zoom-in;
+      }
+      .screen-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(2, 6, 23, 0.92);
+        padding: 20px;
+      }
+      .screen-lightbox[aria-hidden="false"] {
+        display: flex;
+      }
+      .screen-lightbox-dialog {
+        position: relative;
+        width: min(1200px, 100%);
+        height: min(88vh, 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .screen-lightbox-stage {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        cursor: grab;
+        touch-action: none;
+      }
+      .screen-lightbox-stage.is-dragging {
+        cursor: grabbing;
+      }
+      .screen-lightbox-img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        transform-origin: center center;
+        user-select: none;
+        -webkit-user-drag: none;
+        will-change: transform;
+      }
+      .screen-lightbox-controls {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        display: flex;
+        gap: 8px;
+        z-index: 2;
+      }
+      .screen-lightbox-btn {
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 9999px;
+        background: rgba(17, 24, 39, 0.88);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .screen-lightbox-btn:hover {
+        background: #2563eb;
+      }
+      .screen-lightbox-btn i {
+        font-size: 22px;
+        line-height: 1;
+      }
+      .screen-lightbox-caption {
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 2;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(17, 24, 39, 0.72);
+        color: rgba(255, 255, 255, 0.9);
+        font-family: "Open Sans", system-ui, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: center;
       }
       .screen-card figcaption {
         padding: 14px 16px 16px;
@@ -282,5 +371,6 @@
       </div>
     </div>
     <script src="/assets/js/screens-carousel.js"></script>
+    <script src="/assets/js/screens-lightbox.js"></script>
   </body>
 </html>
