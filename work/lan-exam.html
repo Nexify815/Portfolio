@@ -12,7 +12,7 @@
     <meta property="og:description" content="A computer-based exam system for school computer labs that runs entirely on the local network, and is simple enough for non-technical teachers to operate." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://portfolio-3r17-wheat.vercel.app/work/lan-exam.html" />
-    <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/portfolio-01.jpg" />
+    <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/lan_exam_hero_thumbnail.png" />
     <meta property="og:site_name" content="James Kissi Portfolio" />
     <meta name="theme-color" content="#2563eb" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -239,6 +239,18 @@
         color: #ffffff;
         font-weight: 600;
       }
+      /* Hero thumbnail fallbacks (compiled Tailwind may omit these utilities) */
+      .aspect-video { aspect-ratio: 16 / 9; }
+      .rounded-2xl { border-radius: 1rem; }
+      .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45); }
+      .mb-20 { margin-bottom: 5rem; }
+      .overflow-hidden { overflow: hidden; }
+      .relative { position: relative; }
+      .h-full { height: 100%; }
+      .object-cover { object-fit: cover; }
+      .transition-transform { transition-property: transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+      .duration-500 { transition-duration: 500ms; }
+      .group:hover .group-hover\:scale-\[1\.02\] { transform: scale(1.02); }
     </style>
   </head>
 
@@ -280,15 +292,14 @@
         </dl>
       </section>
 
-      <figure class="mx-auto w-full max-w-5xl px-4">
+      <figure class="w-full max-w-5xl mx-auto aspect-video overflow-hidden rounded-2xl shadow-2xl mb-20 group relative">
         <img
-          src="/assets/img/work/lan-exam/teacher-dashboard.png"
-          alt="LAN examination system teacher dashboard"
-          class="w-full rounded shadow-md"
-        />
+          src="/assets/img/lan_exam_hero_thumbnail.png"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          alt="3D illustration of a LAN examination system with the text 'Exams Without the Internet' and student monitors connected to a teacher dashboard." />
       </figure>
 
-      <section class="mx-auto w-full max-w-4xl px-4 pb-2 pt-12 md:pt-14">
+      <section class="mx-auto w-full max-w-4xl px-4 pb-2 pt-4 md:pt-6">
         <h2 class="font-header text-2xl font-semibold text-secondary sm:text-3xl">Screens</h2>
         <div class="screens-carousel-wrap">
           <button type="button" class="screens-carousel-btn prev" aria-label="Previous screenshot"><i class="bx bx-chevron-left" aria-hidden="true"></i></button>
