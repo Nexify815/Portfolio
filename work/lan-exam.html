@@ -114,9 +114,16 @@
       .screen-card img {
         display: block;
         width: 100%;
-        height: auto;
+        height: 220px;
+        object-fit: cover;
+        object-position: top center;
         background: #0b1220;
         cursor: zoom-in;
+      }
+      @media (min-width: 768px) {
+        .screen-card img {
+          height: 280px;
+        }
       }
       .screen-lightbox {
         position: fixed;
