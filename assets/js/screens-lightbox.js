@@ -100,6 +100,7 @@
       })(images[i]);
     }
 
+    var dragged = false;
     lightbox.addEventListener("click", function (e) {
       var actionBtn = e.target.closest("[data-action]");
       if (actionBtn) {
@@ -110,7 +111,15 @@
         if (action === "reset") resetView();
         return;
       }
-      if (e.target.closest(".screen-lightbox-img, .screen-lightbox-controls, .screen-lightbox-caption")) return;
+      if (dragged) {
+        dragged = false;
+        return;
+      }
+      if (e.target.closest(".screen-lightbox-controls, .screen-lightbox-caption")) return;
+      if (e.target.closest(".screen-lightbox-img")) {
+        if (scale === 1) close();
+        return;
+      }
       close();
     });
 
@@ -133,8 +142,11 @@
     });
     stage.addEventListener("pointermove", function (e) {
       if (!dragging) return;
-      tx = startTx + (e.clientX - startX);
-      ty = startTy + (e.clientY - startY);
+      var dx = e.clientX - startX;
+      var dy = e.clientY - startY;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) dragged = true;
+      tx = startTx + dx;
+      ty = startTy + dy;
       applyTransform();
     });
     function endDrag(e) {
@@ -142,6 +154,7 @@
       dragging = false;
       stage.classList.remove("is-dragging");
       try { stage.releasePointerCapture(e.pointerId); } catch (err) {}
+      setTimeout(function () { dragged = false; }, 0);
     }
     stage.addEventListener("pointerup", endDrag);
     stage.addEventListener("pointercancel", endDrag);
