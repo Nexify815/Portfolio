@@ -22,6 +22,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <link crossorigin="anonymous" href="/assets/styles/main.min.css" media="screen" rel="stylesheet" />
+    <style>
+      .screens-carousel {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 24px;
+        -webkit-overflow-scrolling: touch;
+        padding: 4px 4px 12px;
+        margin-top: 28px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .screens-carousel::-webkit-scrollbar {
+        display: none;
+      }
+      .screen-card {
+        flex: 0 0 min(86%, 560px);
+        scroll-snap-align: center;
+        margin: 0;
+        background: #111827;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+      }
+      @media (min-width: 768px) {
+        .screen-card {
+          flex-basis: min(72%, 560px);
+        }
+      }
+      .screen-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: #0b1220;
+      }
+      .screen-card figcaption {
+        padding: 14px 16px 16px;
+        font-family: "Open Sans", system-ui, sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.82);
+      }
+      .screen-card figcaption strong {
+        color: #ffffff;
+        font-weight: 600;
+      }
+    </style>
   </head>
 
   <body class="relative bg-white">
@@ -70,41 +119,32 @@
         />
       </figure>
 
-      <section class="mx-auto w-full max-w-5xl px-4 pb-2 pt-12 md:pt-14">
+      <section class="mx-auto w-full max-w-4xl px-4 pb-2 pt-12 md:pt-14">
         <h2 class="font-header text-2xl font-semibold text-secondary sm:text-3xl">Screens</h2>
-        <div class="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <figure class="flex flex-col md:col-span-2">
+        <div class="screens-carousel" aria-label="Project screenshots">
+          <figure class="screen-card">
             <img
               src="/assets/img/work/student-reports/generated-report.png"
               alt="Generated report sheet"
               loading="lazy"
-              class="w-full rounded border border-grey-70 shadow-md"
             />
-            <figcaption class="mt-auto pt-3 font-body text-sm leading-relaxed text-grey-10">
-              <span class="font-semibold text-secondary">Generated report sheet.</span> One tab per student, with all nine criteria, their descriptions and colour-coded scores.
-            </figcaption>
+            <figcaption><strong>Generated report sheet.</strong> One tab per student, with all nine criteria, their descriptions and colour-coded scores.</figcaption>
           </figure>
-          <figure class="flex flex-col">
+          <figure class="screen-card">
             <img
               src="/assets/img/work/student-reports/report-card-1.png"
               alt="Report card, page 1"
               loading="lazy"
-              class="w-full rounded border border-grey-70 shadow-md"
             />
-            <figcaption class="mt-auto pt-3 font-body text-sm leading-relaxed text-grey-10">
-              <span class="font-semibold text-secondary">Report card, page 1.</span> The exported PDF opens with the school header, student details and the first five criteria.
-            </figcaption>
+            <figcaption><strong>Report card, page 1.</strong> The exported PDF opens with the school header, student details and the first five criteria.</figcaption>
           </figure>
-          <figure class="flex flex-col">
+          <figure class="screen-card">
             <img
               src="/assets/img/work/student-reports/report-card-2.png"
               alt="Report card, page 2"
               loading="lazy"
-              class="w-full rounded border border-grey-70 shadow-md"
             />
-            <figcaption class="mt-auto pt-3 font-body text-sm leading-relaxed text-grey-10">
-              <span class="font-semibold text-secondary">Report card, page 2.</span> The remaining criteria, the total out of 100 and the signature block.
-            </figcaption>
+            <figcaption><strong>Report card, page 2.</strong> The remaining criteria, the total out of 100 and the signature block.</figcaption>
           </figure>
         </div>
       </section>
