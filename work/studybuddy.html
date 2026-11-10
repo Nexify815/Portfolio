@@ -12,7 +12,7 @@
     <meta property="og:description" content="A free, offline-first PWA that explains BECE exam vocabulary in plain language, then drills it with lessons, quizzes and real past papers." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://portfolio-3r17-wheat.vercel.app/work/studybuddy.html" />
-    <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/studybuddycover.png" />
+    <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/studybuddy_cover.png" />
     <meta property="og:site_name" content="James Kissi Portfolio" />
     <meta name="theme-color" content="#2563eb" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -89,6 +89,38 @@
       .screen-lightbox-caption { position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 2; padding: 10px 14px; border-radius: 12px; background: rgba(17, 24, 39, 0.72); color: rgba(255,255,255,0.9); font-family: "Open Sans", system-ui, sans-serif; font-size: 14px; line-height: 1.5; text-align: center; }
       .screen-card figcaption { padding: 14px 16px 16px; font-family: "Open Sans", system-ui, sans-serif; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.82); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
       .screen-card figcaption strong { color: #ffffff; font-weight: 600; }
+      /* Hero thumbnail + overlay fallbacks (compiled Tailwind may omit these utilities) */
+      .aspect-video { aspect-ratio: 16 / 9; }
+      .rounded-2xl { border-radius: 1rem; }
+      .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45); }
+      .mb-20 { margin-bottom: 5rem; }
+      .overflow-hidden { overflow: hidden; }
+      .relative { position: relative; }
+      .absolute { position: absolute; }
+      .bottom-8 { bottom: 2rem; }
+      .left-0 { left: 0; }
+      .right-0 { right: 0; }
+      .text-center { text-align: center; }
+      .px-4 { padding-left: 1rem; padding-right: 1rem; }
+      .pointer-events-none { pointer-events: none; }
+      .h-full { height: 100%; }
+      .object-cover { object-fit: cover; }
+      .transition-transform { transition-property: transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+      .duration-500 { transition-duration: 500ms; }
+      .text-white { color: #ffffff; }
+      .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+      .font-bold { font-weight: 700; }
+      .drop-shadow-lg { filter: drop-shadow(0 10px 8px rgba(0,0,0,0.04)) drop-shadow(0 4px 3px rgba(0,0,0,0.2)); }
+      .text-blue-100 { color: #dbeafe; }
+      .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+      .mt-2 { margin-top: 0.5rem; }
+      .font-medium { font-weight: 500; }
+      .drop-shadow-md { filter: drop-shadow(0 4px 3px rgba(0,0,0,0.07)) drop-shadow(0 2px 2px rgba(0,0,0,0.16)); }
+      .group:hover .group-hover\:scale-\[1\.02\] { transform: scale(1.02); }
+      @media (min-width: 768px) {
+        .md\:text-5xl { font-size: 3rem; line-height: 1; }
+        .md\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+      }
     </style>
   </head>
 
@@ -134,15 +166,19 @@
         </div>
       </section>
 
-      <figure class="mx-auto w-full max-w-5xl px-4">
+      <figure class="w-full max-w-5xl mx-auto aspect-video relative overflow-hidden rounded-2xl shadow-2xl mb-20 group">
         <img
-          src="/assets/img/studybuddycover.png"
-          alt="StudyBuddy BECE exam prep app"
-          class="w-full rounded shadow-md"
+          src="/assets/img/studybuddy_cover.png"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          alt="Cluster of three smartphones displaying the StudyBuddy app UI, including the staircase learning path and quizzes."
         />
+        <div class="absolute bottom-8 left-0 right-0 text-center px-4 pointer-events-none">
+          <h2 class="text-white text-3xl md:text-5xl font-bold drop-shadow-lg">Learn Anywhere. Even Offline.</h2>
+          <p class="text-blue-100 text-sm md:text-xl mt-2 font-medium drop-shadow-md">BECE Exam Prep • React • Firebase</p>
+        </div>
       </figure>
 
-      <section class="mx-auto w-full max-w-4xl px-4 pb-2 pt-12 md:pt-14">
+      <section class="mx-auto w-full max-w-4xl px-4 pb-2 pt-4 md:pt-6">
         <h2 class="font-header text-2xl font-semibold text-secondary sm:text-3xl">Screens <span class="ml-2 font-body text-sm font-normal normal-case tracking-normal text-grey-40 sm:text-base">(click image to expand)</span></h2>
         <div class="screens-carousel-wrap">
           <button type="button" class="screens-carousel-btn prev" aria-label="Previous screenshot"><i class="bx bx-chevron-left" aria-hidden="true"></i></button>
