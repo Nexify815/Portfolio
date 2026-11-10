@@ -60,16 +60,16 @@
         .screens-carousel-btn i { font-size: 24px; }
       }
       .screen-card {
-        flex: 0 0 min(86%, 560px); scroll-snap-align: center; margin: 0;
+        flex: 0 0 240px; scroll-snap-align: center; margin: 0;
         background: #111827; border-radius: 16px; overflow: hidden;
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
       }
-      @media (min-width: 768px) { .screen-card { flex-basis: min(72%, 560px); } }
+      @media (min-width: 768px) { .screen-card { flex-basis: 280px; } }
       .screen-card img {
-        display: block; width: 100%; height: 220px; object-fit: cover; object-position: top center;
+        display: block; width: 100%; height: 480px; object-fit: contain; object-position: top center;
         background: #0b1220; cursor: zoom-in;
       }
-      @media (min-width: 768px) { .screen-card img { height: 280px; } }
+      @media (min-width: 768px) { .screen-card img { height: 560px; } }
       .screen-lightbox {
         position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center;
         background: rgba(2, 6, 23, 0.92); padding: 20px;
