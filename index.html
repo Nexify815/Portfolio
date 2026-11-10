@@ -181,6 +181,7 @@
       outline: 0;
     }
     #contact input::placeholder { color: #6b7280; }
+    [x-cloak] { display: none !important; }
   </style>
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
   <script
@@ -499,100 +500,118 @@
   </div>
 </div>
 
-<div class="container py-16 md:py-20" id="services">
-  <h2
-    class="text-center font-header text-3xl font-semibold uppercase text-primary sm:text-4xl lg:text-5xl"
-  >
-    Here's what I'm good at
-  </h2>
-  <h3
-    class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
-  >
-    These are the services I offer
-  </h3>
+<div id="services" class="bg-white py-14 md:py-20" x-data="{ active: 'web' }">
+  <div class="container">
+    <div class="font-body text-xs font-semibold uppercase tracking-[0.08em] text-[#2563eb]">Services</div>
+    <h2 class="mt-3 font-header text-4xl font-semibold text-[#1a1a1a] sm:text-5xl">Here&apos;s what I&apos;m good at</h2>
+    <p class="mt-2 max-w-3xl font-body text-base leading-7 text-[#555555]">Pick what sounds like you, and see how I can help.</p>
 
-  <div
-    class="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3"
-  >
-    <div class="group rounded px-8 py-12 shadow-md hover:bg-primary">
-      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-        <div class="hidden group-hover:block">
-          <img
-            src="/assets/img/icon-development-white.svg"
-            alt="development icon"
-          />
-        </div>
-        <div class="block group-hover:hidden">
-          <img
-            src="/assets/img/icon-development-black.svg"
-            alt="development icon"
-          />
+    <div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-12">
+      <div class="lg:col-span-2">
+        <div class="font-body text-[11px] font-semibold uppercase tracking-[0.12em] text-[#2563eb]">If you need…</div>
+        <div class="mt-4 flex flex-col gap-4">
+          <button type="button" data-service="web" :class="active === 'web' ? 'border-[#2563eb] bg-[#2563eb] text-white shadow-[0_10px_25px_rgba(37,99,235,0.35)]' : 'border-[#dbe4f3] bg-white text-[#1a1a1a] hover:border-[#2563eb]'" class="rounded-xl border px-6 py-5 text-left font-body text-lg font-medium transition" @click="active = 'web'">
+            &ldquo;I need an app built, end to end.&rdquo;
+          </button>
+          <button type="button" data-service="systems" :class="active === 'systems' ? 'border-[#2563eb] bg-[#2563eb] text-white shadow-[0_10px_25px_rgba(37,99,235,0.35)]' : 'border-[#dbe4f3] bg-white text-[#1a1a1a] hover:border-[#2563eb]'" class="rounded-xl border px-6 py-5 text-left font-body text-lg font-medium transition" @click="active = 'systems'">
+            &ldquo;My system is getting hard to scale.&rdquo;
+          </button>
+          <button type="button" data-service="consulting" :class="active === 'consulting' ? 'border-[#2563eb] bg-[#2563eb] text-white shadow-[0_10px_25px_rgba(37,99,235,0.35)]' : 'border-[#dbe4f3] bg-white text-[#1a1a1a] hover:border-[#2563eb]'" class="rounded-xl border px-6 py-5 text-left font-body text-lg font-medium transition" @click="active = 'consulting'">
+            &ldquo;I want a second pair of expert eyes.&rdquo;
+          </button>
         </div>
       </div>
-      <div class="text-center">
-        <h3
-          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-        >
-          Web Development
-        </h3>
-        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
-          Full-stack applications built with React, Node.js, and modern JavaScript, from dynamic frontends to robust APIs and backends.
-        </p>
-      </div>
-    </div>
-    <div class="group rounded px-8 py-12 shadow-md hover:bg-primary">
-      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-        <div class="hidden group-hover:block">
-          <img
-            src="/assets/img/icon-graphics-white.svg"
-            alt="architecture icon"
-          />
+
+      <div class="lg:col-span-3">
+        <div class="h-full rounded-2xl bg-[#f1f5fb] p-6 md:p-8">
+          <div class="font-body text-[11px] font-semibold uppercase tracking-[0.12em] text-[#2563eb]">Then you need</div>
+
+          <div x-show="active === 'web'" x-cloak class="mt-4">
+            <div class="flex flex-wrap items-center gap-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-[#2563eb] text-white">
+                <i class="bx bx-code text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-body text-3xl font-semibold leading-tight text-[#1a1a1a] md:text-4xl">Web Development</h3>
+            </div>
+            <p class="mt-4 font-body text-base leading-7 text-[#555555]">Full-stack applications built with React, Node.js, and modern JavaScript, from dynamic frontends to robust APIs and backends.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">React</span>
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">Node.js</span>
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">JavaScript</span>
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">APIs</span>
+            </div>
+            <ul class="mt-4 space-y-2 font-body text-sm text-[#1a1a1a]">
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-[#2563eb]"></span>Dynamic frontends</li>
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-[#2563eb]"></span>APIs and backends</li>
+            </ul>
+          </div>
+
+          <div x-show="active === 'systems'" x-cloak class="mt-4">
+            <div class="flex flex-wrap items-center gap-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-[#2563eb] text-white">
+                <i class="bx bx-blueprint text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-body text-3xl font-semibold leading-tight text-[#1a1a1a] md:text-4xl">System Architecture</h3>
+            </div>
+            <p class="mt-4 font-body text-base leading-7 text-[#555555]">Scalable, maintainable system design, including databases, microservices, cloud infrastructure, and end-to-end architecture planning.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">Databases</span>
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">Microservices</span>
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">Cloud</span>
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">Architecture</span>
+            </div>
+            <ul class="mt-4 space-y-2 font-body text-sm text-[#1a1a1a]">
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-[#2563eb]"></span>Scalable, maintainable system design</li>
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-[#2563eb]"></span>Cloud infrastructure planning</li>
+            </ul>
+          </div>
+
+          <div x-show="active === 'consulting'" x-cloak class="mt-4">
+            <div class="flex flex-wrap items-center gap-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-[#2563eb] text-white">
+                <i class="bx bx-search-alt text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-body text-3xl font-semibold leading-tight text-[#1a1a1a] md:text-4xl">Consulting</h3>
+            </div>
+            <p class="mt-4 font-body text-base leading-7 text-[#555555]">Technical guidance, code reviews, architecture reviews, and strategic advice to help you ship better software faster.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">Code Reviews</span>
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">Architecture Reviews</span>
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">Technical Strategy</span>
+              <span class="rounded-full border border-[#e2e8f0] bg-white px-3 py-1.5 text-xs font-semibold text-[#1a1a1a]">Ship Faster</span>
+            </div>
+            <ul class="mt-4 space-y-2 font-body text-sm text-[#1a1a1a]">
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-[#2563eb]"></span>Technical guidance and code reviews</li>
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-[#2563eb]"></span>Strategic architecture advice</li>
+            </ul>
+          </div>
+
+          <a
+            href="#contact"
+            class="talk-about-this mt-7 inline-flex h-12 items-center gap-2 rounded-lg bg-[#2563eb] px-6 font-body text-sm font-bold uppercase tracking-[0.04em] text-white hover:bg-[#1d4ed8]"
+            :data-service-heading="active === 'web' ? 'Web Development' : (active === 'systems' ? 'System Architecture' : 'Consulting')"
+          >
+            Talk about this
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 6l6 6-6 6"></path>
+            </svg>
+          </a>
         </div>
-        <div class="block group-hover:hidden">
-          <img
-            src="/assets/img/icon-graphics-black.svg"
-            alt="architecture icon"
-          />
-        </div>
-      </div>
-      <div class="text-center">
-        <h3
-          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-        >
-          System Architecture
-        </h3>
-        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
-          Scalable, maintainable system design, including databases, microservices, cloud infrastructure, and end-to-end architecture planning.
-        </p>
-      </div>
-    </div>
-    <div class="group rounded px-8 py-12 shadow-md hover:bg-primary">
-      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-        <div class="hidden group-hover:block">
-          <img
-            src="/assets/img/icon-content-white.svg"
-            alt="consulting icon"
-          />
-        </div>
-        <div class="block group-hover:hidden">
-          <img
-            src="/assets/img/icon-content-black.svg"
-            alt="consulting icon"
-          />
-        </div>
-      </div>
-      <div class="text-center">
-        <h3
-          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-        >
-          Consulting
-        </h3>
-        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
-          Technical guidance, code reviews, architecture reviews, and strategic advice to help you ship better software faster.
-        </p>
       </div>
     </div>
   </div>
+  <script>
+    (function () {
+      var contactTopic = document.getElementById('contact-topic');
+      document.querySelectorAll('.talk-about-this').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (!contactTopic) return;
+          contactTopic.value = link.getAttribute('data-service-heading') || '';
+          contactTopic.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+      });
+    })();
+  </script>
 </div>
 
 <div class="container py-16 md:py-20" id="portfolio">
