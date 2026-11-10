@@ -22,6 +22,74 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <link crossorigin="anonymous" href="/assets/styles/main.min.css" media="screen" rel="stylesheet" />
+    <style>
+      .screens-carousel {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 24px;
+        -webkit-overflow-scrolling: touch;
+        padding: 4px 4px 12px;
+        margin-top: 28px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .screens-carousel::-webkit-scrollbar { display: none; }
+      .screens-carousel-wrap { position: relative; margin-top: 28px; }
+      .screens-carousel-wrap .screens-carousel { margin-top: 0; }
+      .screens-carousel-btn {
+        position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+        width: 44px; height: 44px; border: 0; border-radius: 9999px;
+        background: rgba(17, 24, 39, 0.92); color: #ffffff;
+        display: inline-flex; align-items: center; justify-content: center;
+        cursor: pointer; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.22);
+        transition: background 160ms ease, opacity 160ms ease, transform 160ms ease;
+      }
+      .screens-carousel-btn:hover:not(:disabled) { background: #2563eb; }
+      .screens-carousel-btn:disabled { opacity: 0.35; cursor: default; }
+      .screens-carousel-btn.prev { left: -6px; }
+      .screens-carousel-btn.next { right: -6px; }
+      .screens-carousel-btn i { font-size: 28px; line-height: 1; }
+      @media (max-width: 767px) {
+        .screens-carousel-btn { width: 38px; height: 38px; }
+        .screens-carousel-btn.prev { left: 2px; }
+        .screens-carousel-btn.next { right: 2px; }
+        .screens-carousel-btn i { font-size: 24px; }
+      }
+      .screen-card {
+        flex: 0 0 min(86%, 560px); scroll-snap-align: center; margin: 0;
+        background: #111827; border-radius: 16px; overflow: hidden;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+      }
+      @media (min-width: 768px) { .screen-card { flex-basis: min(72%, 560px); } }
+      .screen-card img {
+        display: block; width: 100%; height: 220px; object-fit: cover; object-position: top center;
+        background: #0b1220; cursor: zoom-in;
+      }
+      @media (min-width: 768px) { .screen-card img { height: 280px; } }
+      .screen-lightbox {
+        position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center;
+        background: rgba(2, 6, 23, 0.92); padding: 20px;
+      }
+      .screen-lightbox[aria-hidden="false"] { display: flex; }
+      .screen-lightbox-dialog { position: relative; width: min(1100px, calc(100vw - 64px)); height: min(84vh, calc(100vh - 64px)); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+      .screen-lightbox-stage { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: default; touch-action: none; padding: 56px 28px 76px; box-sizing: border-box; }
+      .screen-lightbox.is-zoomed .screen-lightbox-stage { cursor: grab; }
+      .screen-lightbox.is-zoomed .screen-lightbox-img { cursor: grab; }
+      .screen-lightbox:not(.is-zoomed) .screen-lightbox-img { cursor: pointer; }
+      .screen-lightbox-stage.is-dragging { cursor: grabbing; }
+      .screen-lightbox-img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; transform-origin: center center; user-select: none; -webkit-user-drag: none; will-change: transform; cursor: zoom-in; }
+      .screen-lightbox-controls { position: absolute; top: 12px; right: 12px; display: flex; gap: 8px; z-index: 2; }
+      .screen-lightbox-btn { width: 40px; height: 40px; border: 0; border-radius: 9999px; background: rgba(17, 24, 39, 0.88); color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+      .screen-lightbox-btn:hover { background: #2563eb; }
+      .screen-lightbox-btn i { font-size: 22px; line-height: 1; }
+      .screen-lightbox-caption { position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 2; padding: 10px 14px; border-radius: 12px; background: rgba(17, 24, 39, 0.72); color: rgba(255,255,255,0.9); font-family: "Open Sans", system-ui, sans-serif; font-size: 14px; line-height: 1.5; text-align: center; }
+      .screen-card figcaption { padding: 14px 16px 16px; font-family: "Open Sans", system-ui, sans-serif; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.82); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .screen-card figcaption strong { color: #ffffff; font-weight: 600; }
+    </style>
   </head>
 
   <body class="relative bg-white">
@@ -69,6 +137,32 @@
           class="w-full rounded shadow-md"
         />
       </figure>
+
+      <section class="mx-auto w-full max-w-4xl px-4 pb-2 pt-12 md:pt-14">
+        <h2 class="font-header text-2xl font-semibold text-secondary sm:text-3xl">Screens</h2>
+        <div class="screens-carousel-wrap">
+          <button type="button" class="screens-carousel-btn prev" aria-label="Previous screenshot"><i class="bx bx-chevron-left" aria-hidden="true"></i></button>
+          <div class="screens-carousel" aria-label="Project screenshots">
+            <figure class="screen-card">
+              <img src="/assets/img/work/auto-cat/downloads-before.png" alt="Downloads folder before Auto Cat organizes files" loading="lazy" />
+              <figcaption><strong>Before.</strong> A flat Downloads folder with mixed files waiting to be organized.</figcaption>
+            </figure>
+            <figure class="screen-card">
+              <img src="/assets/img/work/auto-cat/terminal-dry-run.png" alt="Terminal showing auto-cat scan dry-run output" loading="lazy" />
+              <figcaption><strong>Dry run.</strong> Preview of where each file would go without moving anything.</figcaption>
+            </figure>
+            <figure class="screen-card">
+              <img src="/assets/img/work/auto-cat/downloads-after.png" alt="Downloads folder after Auto Cat organizes files into category folders" loading="lazy" />
+              <figcaption><strong>After.</strong> Files filed into category folders inside the watched directory.</figcaption>
+            </figure>
+            <figure class="screen-card">
+              <img src="/assets/img/work/auto-cat/setup-window.png" alt="Auto Cat setup window showing watched folder and stability settings" loading="lazy" />
+              <figcaption><strong>Setup.</strong> Choose the watched folder, stability timing, and save or preview a scan.</figcaption>
+            </figure>
+          </div>
+          <button type="button" class="screens-carousel-btn next" aria-label="Next screenshot"><i class="bx bx-chevron-right" aria-hidden="true"></i></button>
+        </div>
+      </section>
 
       <article class="mx-auto w-full max-w-3xl px-4 py-14 md:py-20">
         <section class="mt-11 first:mt-0">
@@ -141,5 +235,7 @@
         </div>
       </div>
     </div>
+    <script src="/assets/js/screens-carousel.js"></script>
+    <script src="/assets/js/screens-lightbox.js"></script>
   </body>
 </html>
