@@ -25,7 +25,7 @@
     <style>
       .screens-carousel {
         display: flex;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 20px;
         overflow-x: auto;
         overflow-y: hidden;
@@ -63,6 +63,7 @@
         flex: 0 0 240px; scroll-snap-align: center; margin: 0;
         background: #111827; border-radius: 16px; overflow: hidden;
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+        display: flex; flex-direction: column;
       }
       @media (min-width: 768px) { .screen-card { flex-basis: 280px; } }
       .screen-card img {
@@ -87,7 +88,7 @@
       .screen-lightbox-btn:hover { background: #2563eb; }
       .screen-lightbox-btn i { font-size: 22px; line-height: 1; }
       .screen-lightbox-caption { position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 2; padding: 10px 14px; border-radius: 12px; background: rgba(17, 24, 39, 0.72); color: rgba(255,255,255,0.9); font-family: "Open Sans", system-ui, sans-serif; font-size: 14px; line-height: 1.5; text-align: center; }
-      .screen-card figcaption { padding: 14px 16px 16px; font-family: "Open Sans", system-ui, sans-serif; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.82); white-space: normal; overflow-wrap: anywhere; min-height: calc(1.6em * 5 + 30px); }
+      .screen-card figcaption { padding: 14px 16px 16px; font-family: "Open Sans", system-ui, sans-serif; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.82); white-space: normal; overflow-wrap: anywhere; flex: 1 1 auto; }
       .screen-card figcaption strong { color: #ffffff; font-weight: 600; }
       /* Hero thumbnail + overlay fallbacks (compiled Tailwind may omit these utilities) */
       .aspect-video { aspect-ratio: 16 / 9; }
