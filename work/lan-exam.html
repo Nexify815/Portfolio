@@ -351,45 +351,63 @@
         </div>
       </section>
 
-      <article class="mx-auto w-full max-w-3xl px-4 py-14 md:py-20">
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The problem</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">School computer labs often have the machines but not a reliable internet connection, and exam day is exactly when a dependency on the cloud is most dangerous. The system also has to be operable by teachers who are not technical.</p>
-        </section>
+      <article class="mx-auto w-full max-w-5xl px-4 py-12 md:py-16">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
+          <aside class="lg:col-span-3">
+            <nav class="case-study-nav flex flex-wrap gap-2 lg:sticky lg:top-24 lg:flex-col lg:gap-1" aria-label="Sections">
+              <a href="#the-problem" class="case-link rounded-lg px-3 py-2 font-body text-sm font-semibold text-[#2563eb] bg-[#eaf1ff]">The problem</a>
+              <a href="#what-i-built" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">What I built</a>
+              <a href="#how-it-is-built" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">How it is built</a>
+              <a href="#decisions" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Decisions that mattered</a>
+              <a href="#outcome" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Outcome</a>
+            </nav>
+          </aside>
+          <div class="lg:col-span-9 space-y-12">
+            <section id="the-problem" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">The problem</h2>
+              <div class="mt-4 rounded-lg border-l-4 border-[#2563eb] bg-[#eef4ff] p-5 font-body text-base leading-7 text-[#1f2937]">School computer labs often have the machines but not a reliable internet connection, and exam day is exactly when a dependency on the cloud is most dangerous. The system also has to be operable by teachers who are not technical.</div>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">What I built</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A computer-based examination system designed for school computer labs. It runs entirely offline within a local area network and covers the full exam lifecycle, from creating an exam to monitoring the room and grading the results.</p>
-          <ul class="mt-4 space-y-3">
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Teacher dashboard</strong> to create, manage and monitor exams.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Live student tracking</strong> over Socket.io, so the room is visible as it happens.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Three question types</strong>: multiple choice, true/false and short answer.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Auto-grading</strong> for objective questions, with instant results.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Import and export</strong> in CSV, Excel and JSON.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Exam integrity measures</strong>: fullscreen enforcement and tab-switch detection.</span></li>
-          </ul>
-        </section>
+            <section id="what-i-built" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">What I built</h2>
+              <p class="mt-3 font-body text-base leading-7 text-[#4b5563]">A computer-based examination system designed for school computer labs. It runs entirely offline within a local area network and covers the full exam lifecycle, from creating an exam to monitoring the room and grading the results.</p>
+              <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">01</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Teacher dashboard</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Create, manage and monitor exams.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">02</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Live student tracking</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Over Socket.io, so the room is visible as it happens.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">03</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Three question types</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Multiple choice, true/false and short answer.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">04</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Auto-grading</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">For objective questions, with instant results.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">05</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Import and export</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">In CSV, Excel and JSON.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">06</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Exam integrity</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Fullscreen enforcement and tab-switch detection.</p></div>
+              </div>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">How it is built</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Express serves an EJS front end backed by SQLite through better-sqlite3, while Socket.io pushes live state to the teacher's dashboard. ExcelJS and PapaParse handle bulk imports, so staff can prepare students and questions in the spreadsheets they already use.</p>
-        </section>
+            <section id="how-it-is-built" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">How it is built</h2>
+              <div class="mt-4 grid grid-cols-2 gap-4 md:grid-cols-4">
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Server</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">Express</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Serves an EJS front end</div></div>
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Database</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">SQLite</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Through better-sqlite3</div></div>
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Realtime</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">Socket.io</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Pushes live state to the dashboard</div></div>
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Imports</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">ExcelJS + PapaParse</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Bulk imports from spreadsheets</div></div>
+              </div>
+              <p class="mt-3 font-body text-xs text-[#6b7280]">Staff can prepare students and questions in the spreadsheets they already use.</p>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Decisions that mattered</h2>
+            <section id="decisions" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Decisions that mattered</h2>
+              <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">SQLite over a server database</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">A single self-contained file travels with the install and needs no administration.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Socket.io for monitoring</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">The teacher sees the room live instead of refreshing a page.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Server-rendered EJS and vanilla JavaScript</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">The client stays light enough for older lab machines.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Fullscreen and tab-switch detection</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">An unsupervised digital exam needs guardrails.</p></div>
+              </div>
+            </section>
 
-          <ul class="mt-4 space-y-3">
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>SQLite over a server database.</strong> A single self-contained file travels with the install and needs no administration.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Socket.io for monitoring.</strong> The teacher sees the room live instead of refreshing a page.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Server-rendered EJS and vanilla JavaScript.</strong> The client stays light enough for older lab machines.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Fullscreen and tab-switch detection.</strong> An unsupervised digital exam needs guardrails.</span></li>
-          </ul>
-        </section>
-
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Outcome</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A self-contained exam system a school can deploy on its own network and run without an internet connection at any point.</p>
-        </section>
+            <section id="outcome" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Outcome</h2>
+              <div class="mt-4 rounded-lg border-l-4 border-[#2563eb] bg-[#eef4ff] p-5 font-body text-base leading-7 text-[#1f2937]">A self-contained exam system a school can deploy on its own network and run without an internet connection at any point.</div>
+            </section>
+          </div>
+        </div>
       </article>
 
       <nav class="mx-auto w-full max-w-5xl px-4 pb-16" aria-label="Project navigation">
@@ -426,5 +444,26 @@
     </div>
     <script src="/assets/js/screens-carousel.js"></script>
     <script src="/assets/js/screens-lightbox.js"></script>
+    <script>
+      (function () {
+        var links = document.querySelectorAll('.case-link');
+        var sections = document.querySelectorAll('.case-section');
+        if (!links.length || !sections.length) return;
+        function setActive(id) {
+          links.forEach(function (l) {
+            var on = l.getAttribute('href') === '#' + id;
+            l.classList.toggle('bg-[#eaf1ff]', on);
+            l.classList.toggle('text-[#2563eb]', on);
+            l.classList.toggle('font-semibold', on);
+            l.classList.toggle('text-[#555555]', !on);
+          });
+        }
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) { if (entry.isIntersecting) setActive(entry.target.id); });
+        }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+        sections.forEach(function (s) { obs.observe(s); });
+        links.forEach(function (l) { l.addEventListener('click', function () { setActive(l.getAttribute('href').slice(1)); }); });
+      })();
+    </script>
   </body>
 </html>

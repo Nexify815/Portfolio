@@ -343,43 +343,55 @@
         </div>
       </section>
 
-      <article class="mx-auto w-full max-w-3xl px-4 py-14 md:py-20">
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The problem</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">An educational robotics programme needed termly evaluation reports for every student, each with logos, nine assessment categories, colour-coded scores and a signature block. Producing those by hand is slow, inconsistent and easy to get wrong.</p>
-        </section>
+      <article class="mx-auto w-full max-w-5xl px-4 py-12 md:py-16">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
+          <aside class="lg:col-span-3">
+            <nav class="case-study-nav flex flex-wrap gap-2 lg:sticky lg:top-24 lg:flex-col lg:gap-1" aria-label="Sections">
+              <a href="#the-problem" class="case-link rounded-lg px-3 py-2 font-body text-sm font-semibold text-[#2563eb] bg-[#eaf1ff]">The problem</a>
+              <a href="#what-i-built" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">What I built</a>
+              <a href="#assessment-model" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Assessment model</a>
+              <a href="#decisions" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Decisions that mattered</a>
+              <a href="#outcome" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Outcome</a>
+            </nav>
+          </aside>
+          <div class="lg:col-span-9 space-y-12">
+            <section id="the-problem" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">The problem</h2>
+              <div class="mt-4 rounded-lg border-l-4 border-[#2563eb] bg-[#eef4ff] p-5 font-body text-base leading-7 text-[#1f2937]">An educational robotics programme needed termly evaluation reports for every student, each with logos, nine assessment categories, colour-coded scores and a signature block. Producing those by hand is slow, inconsistent and easy to get wrong.</div>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">What I built</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">An Apps Script project bound to a &ldquo;Class Details&rdquo; sheet. A sidebar asks for the school name, term and batch size, then generates a formatted report sheet for each student and exports the finished PDFs to a chosen Drive folder.</p>
-          <ul class="mt-4 space-y-3">
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Student names, grades and scores across nine weighted criteria are read directly from the Class Details sheet.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Students are processed in configurable batches using time-based triggers, staying inside Apps Script's six-minute execution limit.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Each report is laid out with logos, score breakdowns with descriptions, colour-coded results and a signature section.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Generated batches export to PDF; source spreadsheets are trashed after a successful download.</span></li>
-          </ul>
-        </section>
+            <section id="what-i-built" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">What I built</h2>
+              <p class="mt-3 font-body text-base leading-7 text-[#4b5563]">An Apps Script project bound to a &ldquo;Class Details&rdquo; sheet. A sidebar asks for the school name, term and batch size, then generates a formatted report sheet for each student and exports the finished PDFs to a chosen Drive folder.</p>
+              <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">01</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Reads from the sheet</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Student names, grades and scores across nine weighted criteria are read directly from the Class Details sheet.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">02</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Batched runs</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Configurable batches using time-based triggers, staying inside Apps Script&apos;s six-minute execution limit.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">03</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Formatted reports</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Logos, score breakdowns with descriptions, colour-coded results and a signature section.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">04</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">PDF into Drive</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Generated batches export to PDF; source spreadsheets are trashed after a successful download.</p></div>
+              </div>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Assessment model</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Nine criteria total 100 marks: Presentation Skills, Teamwork, Time Management, Engineering Design, Critical Thinking, Class Participation, Class Work and Homework at 10 each, plus the Assessment itself at 20.</p>
-        </section>
+            <section id="assessment-model" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Assessment model</h2>
+              <p class="mt-3 font-body text-base leading-7 text-[#4b5563]">Nine criteria total 100 marks: Presentation Skills, Teamwork, Time Management, Engineering Design, Critical Thinking, Class Participation, Class Work and Homework at 10 each, plus the Assessment itself at 20.</p>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Decisions that mattered</h2>
+            <section id="decisions" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Decisions that mattered</h2>
+              <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Config cells instead of code edits</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">Five cells in the sheet (logo, signature, company logo, Drive folder and authority title) retarget the generator at another school.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Batched runs on triggers</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">A single Apps Script execution cannot exceed six minutes, so runs are chunked and scheduled.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">An observable long run</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">A progress bar, cancellation and a report-link view make a multi-batch job something you can watch.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">PDF into Drive</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">Because that is how the reports are actually distributed.</p></div>
+              </div>
+            </section>
 
-          <ul class="mt-4 space-y-3">
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Config cells instead of code edits.</strong> Five cells in the sheet (logo, signature, company logo, Drive folder and authority title) retarget the generator at another school.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Batched runs on triggers,</strong> because a single Apps Script execution cannot exceed six minutes.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>An observable long run.</strong> A progress bar, cancellation and a report-link view make a multi-batch job something you can watch.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>PDF into Drive,</strong> because that is how the reports are actually distributed.</span></li>
-          </ul>
-        </section>
-
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Outcome</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Termly reporting that runs from a sidebar instead of occupying an instructor for days.</p>
-        </section>
+            <section id="outcome" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Outcome</h2>
+              <div class="mt-4 rounded-lg border-l-4 border-[#2563eb] bg-[#eef4ff] p-5 font-body text-base leading-7 text-[#1f2937]">Termly reporting that runs from a sidebar instead of occupying an instructor for days.</div>
+            </section>
+          </div>
+        </div>
       </article>
 
       <nav class="mx-auto w-full max-w-5xl px-4 pb-16" aria-label="Project navigation">
@@ -416,5 +428,26 @@
     </div>
     <script src="/assets/js/screens-carousel.js"></script>
     <script src="/assets/js/screens-lightbox.js"></script>
+    <script>
+      (function () {
+        var links = document.querySelectorAll('.case-link');
+        var sections = document.querySelectorAll('.case-section');
+        if (!links.length || !sections.length) return;
+        function setActive(id) {
+          links.forEach(function (l) {
+            var on = l.getAttribute('href') === '#' + id;
+            l.classList.toggle('bg-[#eaf1ff]', on);
+            l.classList.toggle('text-[#2563eb]', on);
+            l.classList.toggle('font-semibold', on);
+            l.classList.toggle('text-[#555555]', !on);
+          });
+        }
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) { if (entry.isIntersecting) setActive(entry.target.id); });
+        }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+        sections.forEach(function (s) { obs.observe(s); });
+        links.forEach(function (l) { l.addEventListener('click', function () { setActive(l.getAttribute('href').slice(1)); }); });
+      })();
+    </script>
   </body>
 </html>

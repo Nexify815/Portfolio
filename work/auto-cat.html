@@ -193,43 +193,61 @@
         </div>
       </section>
 
-      <article class="mx-auto w-full max-w-3xl px-4 py-14 md:py-20">
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">The problem</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Downloads folders rot because filing has to happen at the exact moment you least want to do it. Filenames rarely tell you what a file actually is, either.</p>
-        </section>
+      <article class="mx-auto w-full max-w-5xl px-4 py-12 md:py-16">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
+          <aside class="lg:col-span-3">
+            <nav class="case-study-nav flex flex-wrap gap-2 lg:sticky lg:top-24 lg:flex-col lg:gap-1" aria-label="Sections">
+              <a href="#the-problem" class="case-link rounded-lg px-3 py-2 font-body text-sm font-semibold text-[#2563eb] bg-[#eaf1ff]">The problem</a>
+              <a href="#what-i-built" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">What I built</a>
+              <a href="#safety-model" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Safety model</a>
+              <a href="#engineering" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Engineering</a>
+              <a href="#outcome" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Outcome</a>
+            </nav>
+          </aside>
+          <div class="lg:col-span-9 space-y-12">
+            <section id="the-problem" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">The problem</h2>
+              <div class="mt-4 rounded-lg border-l-4 border-[#2563eb] bg-[#eef4ff] p-5 font-body text-base leading-7 text-[#1f2937]">Downloads folders rot because filing has to happen at the exact moment you least want to do it. Filenames rarely tell you what a file actually is, either.</div>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">What I built</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A filesystem service that watches a folder, detects new files and browser temp-name to final renames, and waits until a file's size has been stable for a few seconds. It then identifies the file by reading PDF text to tell an invoice from a statement from a contract, and extracts the date and vendor to build a clean name.</p>
-          <ul class="mt-4 space-y-3">
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Wait-until-done.</strong> Partial .crdownload and .part files are ignored.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Content intelligence.</strong> PDF text decides the category and supplies the date and vendor for names like 2026_July_Acme_Power_Electric_Bill.pdf.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Rules-driven.</strong> Categories, keywords and extensions live in a commented config.yaml, so no code changes are needed to retune it.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>Quiet by default,</strong> with an optional Windows tray icon and logon auto-start.</span></li>
-          </ul>
-        </section>
+            <section id="what-i-built" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">What I built</h2>
+              <p class="mt-3 font-body text-base leading-7 text-[#4b5563]">A filesystem service that watches a folder, detects new files and browser temp-name to final renames, and waits until a file&apos;s size has been stable for a few seconds. It then identifies the file by reading PDF text to tell an invoice from a statement from a contract, and extracts the date and vendor to build a clean name.</p>
+              <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">01</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Wait-until-done</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Partial .crdownload and .part files are ignored.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">02</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Content intelligence</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">PDF text decides the category and supplies the date and vendor for names like 2026_July_Acme_Power_Electric_Bill.pdf.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">03</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Rules-driven</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Categories, keywords and extensions live in a commented config.yaml, so no code changes are needed to retune it.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">04</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Quiet by default</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">With an optional Windows tray icon and logon auto-start.</p></div>
+              </div>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Safety model</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">Nothing is ever destroyed, and every move can be reverted.</p>
-          <ul class="mt-4 space-y-3">
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Same-volume moves are atomic renames; cross-volume moves copy, verify a SHA-256 hash, then delete the source.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Uncertain files are never touched, so they stay in the watched folder.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span>Every action is logged with an id, and <strong>--undo &lt;id&gt;</strong> restores it, deduping instead of overwriting.</span></li>
-            <li class="flex font-body text-lg leading-relaxed text-grey-10"><span class="mr-3 mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-primary"></span><span><strong>--dry-run</strong> previews every decision without touching a file.</span></li>
-          </ul>
-        </section>
+            <section id="safety-model" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Safety model</h2>
+              <p class="mt-3 font-body text-base leading-7 text-[#4b5563]">Nothing is ever destroyed, and every move can be reverted.</p>
+              <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Atomic same-volume moves</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">Cross-volume moves copy, verify a SHA-256 hash, then delete the source.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Uncertain files are never touched</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">So they stay in the watched folder.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Every action is logged with an id</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]"><strong>--undo &lt;id&gt;</strong> restores it, deduping instead of overwriting.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">--dry-run</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">Previews every decision without touching a file.</p></div>
+              </div>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Engineering</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">The project ships with a test suite of 65 tests and Ruff for linting, plus a setup window that asks which folder to organise and writes the config.</p>
-        </section>
+            <section id="engineering" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Engineering</h2>
+              <div class="mt-4 grid grid-cols-2 gap-4 md:grid-cols-4">
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Language</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">Python</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Watchdog-based fs service</div></div>
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Platform</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">Windows</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Tray icon + logon auto-start</div></div>
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Quality</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">65 tests</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Ruff for linting</div></div>
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Config</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">config.yaml</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Rules and extensions, no code edits</div></div>
+              </div>
+            </section>
 
-        <section class="mt-11 first:mt-0">
-          <h2 class="font-header text-2xl font-semibold text-primary sm:text-3xl">Outcome</h2>
-          <p class="mt-4 font-body text-lg leading-relaxed text-grey-10">A downloads folder that stays organised without anyone remembering to organise it.</p>
-        </section>
+            <section id="outcome" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Outcome</h2>
+              <div class="mt-4 rounded-lg border-l-4 border-[#2563eb] bg-[#eef4ff] p-5 font-body text-base leading-7 text-[#1f2937]">A downloads folder that stays organised without anyone remembering to organise it.</div>
+            </section>
+          </div>
+        </div>
       </article>
 
       <nav class="mx-auto w-full max-w-5xl px-4 pb-16" aria-label="Project navigation">
@@ -266,5 +284,26 @@
     </div>
     <script src="/assets/js/screens-carousel.js"></script>
     <script src="/assets/js/screens-lightbox.js"></script>
+    <script>
+      (function () {
+        var links = document.querySelectorAll('.case-link');
+        var sections = document.querySelectorAll('.case-section');
+        if (!links.length || !sections.length) return;
+        function setActive(id) {
+          links.forEach(function (l) {
+            var on = l.getAttribute('href') === '#' + id;
+            l.classList.toggle('bg-[#eaf1ff]', on);
+            l.classList.toggle('text-[#2563eb]', on);
+            l.classList.toggle('font-semibold', on);
+            l.classList.toggle('text-[#555555]', !on);
+          });
+        }
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) { if (entry.isIntersecting) setActive(entry.target.id); });
+        }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+        sections.forEach(function (s) { obs.observe(s); });
+        links.forEach(function (l) { l.addEventListener('click', function () { setActive(l.getAttribute('href').slice(1)); }); });
+      })();
+    </script>
   </body>
 </html>
