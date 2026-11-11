@@ -429,72 +429,108 @@
   </div>
 </div>
 
-<div class="bg-grey-50" id="about">
-  <div class="container flex flex-col items-center py-16 md:py-20 lg:flex-row">
-    <div class="w-full text-center sm:w-3/4 lg:w-3/5 lg:text-left">
-      <h2
-        class="font-header text-3xl font-semibold uppercase text-primary sm:text-4xl lg:text-5xl"
-      >
-        Who am I?
-      </h2>
-      <h4
-        class="pt-6 font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
-      >
-        Full-Stack Developer & Systems Builder
-      </h4>
-      <p class="pt-6 font-body leading-relaxed text-grey-20">
-        I build robust, scalable systems and applications from the ground up. 
-        With expertise spanning React, Node.js, Python, and modern JavaScript, 
-        I craft end-to-end solutions that are clean, performant, and maintainable. 
-        Whether it's a dynamic web app or a complex backend system, 
-        I bring ideas to life with code.
-      </p>
-      <div
-        class="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start"
-      >
-        <div class="flex items-center justify-center sm:justify-start">
-          <p class="font-body text-lg font-semibold uppercase text-grey-20">
-            Connect with me
-          </p>
-          <div class="hidden sm:block">
-            <i class="bx bx-chevron-right text-2xl text-primary"></i>
+<div id="about" class="bg-[#fbfcfe] py-14 md:py-20">
+  <div class="container">
+    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-6">
+        <div class="font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-[#2563eb]">About</div>
+        <h2 class="mt-3 font-header text-4xl font-semibold leading-tight text-[#111827] sm:text-5xl lg:text-6xl">Who am I?</h2>
+        <h3 class="mt-4 font-header text-xl font-medium leading-snug text-[#2563eb] sm:text-2xl">Full-Stack Developer &amp; Systems Builder</h3>
+        <p class="mt-6 max-w-xl font-body text-base leading-8 text-[#4b5563]">I build robust, scalable systems and applications from the ground up. With expertise spanning React, Node.js, Python, and modern JavaScript, I craft end-to-end solutions that are clean, performant, and maintainable. Whether it&apos;s a dynamic web app or a complex backend system, I bring ideas to life with code.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/assets/img/resume.pdf" class="inline-flex h-14 items-center gap-3 rounded-xl bg-[#2563eb] px-6 font-body text-sm font-bold uppercase tracking-[0.04em] text-white hover:bg-[#1d4ed8]">
+            Download Resume
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v12"/>
+              <path d="M7 12h10"/>
+              <path d="M5 21h14"/>
+            </svg>
+          </a>
+          <a href="https://github.com/Nexify815" target="_blank" rel="noreferrer" class="inline-flex h-14 items-center gap-3 rounded-xl border border-[#d7deee] bg-white px-6 font-body text-sm font-bold text-[#111827] hover:border-[#2563eb] hover:text-[#2563eb]">
+            GitHub
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7"/>
+              <path d="M8 7h9v9"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/james-kissi-80b7232a4/" target="_blank" rel="noreferrer" class="inline-flex h-14 items-center gap-3 rounded-xl border border-[#d7deee] bg-white px-6 font-body text-sm font-bold text-[#111827] hover:border-[#2563eb] hover:text-[#2563eb]">
+            LinkedIn
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7"/>
+              <path d="M8 7h9v9"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6">
+        <div class="flex items-center gap-6">
+          <svg class="h-[320px] w-full max-w-md flex-none sm:h-[380px]" viewBox="0 0 360 360" fill="none" role="img" aria-label="Layered technology stack">
+            <defs>
+              <linearGradient id="layerTop" x1="180" y1="0" x2="180" y2="96" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2f6bff"/>
+                <stop offset="1" stop-color="#1d4ed8"/>
+              </linearGradient>
+              <linearGradient id="layer2" x1="180" y1="92" x2="180" y2="168" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#5b8cff"/>
+                <stop offset="1" stop-color="#2563eb"/>
+              </linearGradient>
+              <linearGradient id="layer3" x1="180" y1="164" x2="180" y2="240" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#a8c7ff"/>
+                <stop offset="1" stop-color="#6ea8ff"/>
+              </linearGradient>
+              <linearGradient id="layer4" x1="180" y1="236" x2="180" y2="312" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#d3e7ff"/>
+                <stop offset="1" stop-color="#b9d5ff"/>
+              </linearGradient>
+            </defs>
+
+            <polygon points="180,18 332,92 180,166 28,92" fill="url(#layerTop)"/>
+            <polygon points="28,92 180,166 180,214 28,140" fill="#1d4ed8"/>
+            <polygon points="332,92 180,166 180,214 332,140" fill="#1e40af"/>
+
+            <polygon points="180,112 332,186 180,260 28,186" fill="url(#layer2)"/>
+            <polygon points="28,186 180,260 180,300 28,226" fill="#2563eb"/>
+            <polygon points="332,186 180,260 180,300 332,226" fill="#1d4ed8"/>
+
+            <polygon points="180,206 332,280 180,354 28,280" fill="url(#layer3)" opacity="0.95"/>
+            <polygon points="28,280 180,354 180,384 28,310" fill="#6ea8ff" opacity="0.95"/>
+            <polygon points="332,280 180,354 180,384 332,310" fill="#3b82f6" opacity="0.95"/>
+
+            <polygon points="180,300 332,374 180,448 28,374" fill="url(#layer4)" opacity="0.9"/>
+          </svg>
+
+          <div class="flex flex-1 flex-col gap-7 pt-2 text-sm">
+            <div class="flex items-start gap-4">
+              <div class="mt-1.5 hidden h-px w-12 border-t border-dashed border-[#c7d2fe] sm:block" aria-hidden="true"></div>
+              <div>
+                <div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Frontend</div>
+                <div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">React · JavaScript · HTML &amp; CSS</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="mt-1.5 hidden h-px w-12 border-t border-dashed border-[#c7d2fe] sm:block" aria-hidden="true"></div>
+              <div>
+                <div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Backend</div>
+                <div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">Node.js · Python</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="mt-1.5 hidden h-px w-12 border-t border-dashed border-[#c7d2fe] sm:block" aria-hidden="true"></div>
+              <div>
+                <div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Data</div>
+                <div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">Databases</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="mt-1.5 hidden h-px w-12 border-t border-dashed border-[#c7d2fe] sm:block" aria-hidden="true"></div>
+              <div>
+                <div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Automation</div>
+                <div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">Google Apps Script · Automation</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div
-          class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0"
-        >
-          <a href="https://github.com/Nexify815" target="_blank">
-            <i
-              class="bx bxl-github text-2xl text-primary hover:text-yellow"
-            ></i>
-          </a>
-          <a href="https://www.linkedin.com/in/james-kissi-80b7232a4/" target="_blank" class="pl-4">
-            <i
-              class="bx bxl-linkedin text-2xl text-primary hover:text-yellow"
-            ></i>
-          </a>
-        </div>
-      </div>
-      <div class="pt-6">
-        <a
-          href="/assets/img/resume.pdf"
-          class="inline-block rounded bg-primary px-6 py-3 font-header text-sm font-bold uppercase text-white hover:bg-grey-20"
-        >
-          Download Resume
-        </a>
-      </div>
-    </div>
-    <div class="w-full pl-0 pt-10 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0">
-      <h3 class="font-body text-lg font-semibold uppercase text-black mb-4">Technologies I work with</h3>
-      <div class="flex flex-wrap gap-2">
-        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Google Apps Script</span>
-        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Node.js</span>
-        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">React</span>
-        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Python</span>
-        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">JavaScript</span>
-        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">HTML & CSS</span>
-        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Databases</span>
-        <span class="rounded-full bg-lila px-4 py-2 font-body text-sm text-black">Automation</span>
       </div>
     </div>
   </div>
