@@ -464,70 +464,46 @@
       </div>
 
       <div class="lg:col-span-6">
-        <div class="flex items-center gap-6">
-          <svg class="h-[320px] w-full max-w-md flex-none sm:h-[380px]" viewBox="0 0 360 360" fill="none" role="img" aria-label="Layered technology stack">
+        <div class="grid grid-cols-[minmax(0,220px)_1fr] items-center gap-6 sm:grid-cols-[minmax(0,280px)_1fr] sm:gap-8">
+          <svg class="h-[260px] w-full max-w-xs sm:h-[320px]" viewBox="0 0 220 260" fill="none" role="img" aria-label="Layered technology stack">
             <defs>
-              <linearGradient id="layerTop" x1="180" y1="0" x2="180" y2="96" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#2f6bff"/>
-                <stop offset="1" stop-color="#1d4ed8"/>
-              </linearGradient>
-              <linearGradient id="layer2" x1="180" y1="92" x2="180" y2="168" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#5b8cff"/>
-                <stop offset="1" stop-color="#2563eb"/>
-              </linearGradient>
-              <linearGradient id="layer3" x1="180" y1="164" x2="180" y2="240" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#a8c7ff"/>
-                <stop offset="1" stop-color="#6ea8ff"/>
-              </linearGradient>
-              <linearGradient id="layer4" x1="180" y1="236" x2="180" y2="312" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#d3e7ff"/>
-                <stop offset="1" stop-color="#b9d5ff"/>
-              </linearGradient>
+              <linearGradient id="s1top" x1="110" y1="0" x2="110" y2="52" gradientUnits="userSpaceOnUse"><stop stop-color="#2f6bff"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient>
+              <linearGradient id="s2top" x1="110" y1="54" x2="110" y2="106" gradientUnits="userSpaceOnUse"><stop stop-color="#5b8cff"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+              <linearGradient id="s3top" x1="110" y1="108" x2="110" y2="160" gradientUnits="userSpaceOnUse"><stop stop-color="#a8c7ff"/><stop offset="1" stop-color="#6ea8ff"/></linearGradient>
+              <linearGradient id="s4top" x1="110" y1="162" x2="110" y2="214" gradientUnits="userSpaceOnUse"><stop stop-color="#d3e7ff"/><stop offset="1" stop-color="#b9d5ff"/></linearGradient>
             </defs>
 
-            <polygon points="180,18 332,92 180,166 28,92" fill="url(#layerTop)"/>
-            <polygon points="28,92 180,166 180,214 28,140" fill="#1d4ed8"/>
-            <polygon points="332,92 180,166 180,214 332,140" fill="#1e40af"/>
+            <polygon points="110,2 198,52 110,102 22,52" fill="url(#s1top)"/>
+            <polygon points="22,52 110,102 110,116 22,66" fill="#1d4ed8"/>
+            <polygon points="198,52 110,102 110,116 198,66" fill="#1e40af"/>
 
-            <polygon points="180,112 332,186 180,260 28,186" fill="url(#layer2)"/>
-            <polygon points="28,186 180,260 180,300 28,226" fill="#2563eb"/>
-            <polygon points="332,186 180,260 180,300 332,226" fill="#1d4ed8"/>
+            <polygon points="110,66 198,116 110,166 22,116" fill="url(#s2top)"/>
+            <polygon points="22,116 110,166 110,176 22,126" fill="#2563eb"/>
+            <polygon points="198,116 110,166 110,176 198,126" fill="#1d4ed8"/>
 
-            <polygon points="180,206 332,280 180,354 28,280" fill="url(#layer3)" opacity="0.95"/>
-            <polygon points="28,280 180,354 180,384 28,310" fill="#6ea8ff" opacity="0.95"/>
-            <polygon points="332,280 180,354 180,384 332,310" fill="#3b82f6" opacity="0.95"/>
+            <polygon points="110,130 198,180 110,230 22,180" fill="url(#s3top)" opacity="0.96"/>
+            <polygon points="22,180 110,230 110,238 22,188" fill="#6ea8ff" opacity="0.96"/>
+            <polygon points="198,180 110,230 110,238 198,188" fill="#3b82f6" opacity="0.96"/>
 
-            <polygon points="180,300 332,374 180,448 28,374" fill="url(#layer4)" opacity="0.9"/>
+            <polygon points="110,194 198,244 110,294 22,244" fill="url(#s4top)" opacity="0.9"/>
           </svg>
 
-          <div class="flex flex-1 flex-col gap-7 pt-2 text-sm">
-            <div class="flex items-start gap-4">
-              <div class="mt-1.5 hidden h-px w-12 border-t border-dashed border-[#c7d2fe] sm:block" aria-hidden="true"></div>
-              <div>
-                <div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Frontend</div>
-                <div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">React · JavaScript · HTML &amp; CSS</div>
-              </div>
+          <div class="flex flex-col gap-6 sm:gap-7">
+            <div class="flex items-center gap-3">
+              <div class="hidden h-px w-10 border-t border-dashed border-[#c7d2fe] sm:block"></div>
+              <div><div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Frontend</div><div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">React · JavaScript · HTML &amp; CSS</div></div>
             </div>
-            <div class="flex items-start gap-4">
-              <div class="mt-1.5 hidden h-px w-12 border-t border-dashed border-[#c7d2fe] sm:block" aria-hidden="true"></div>
-              <div>
-                <div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Backend</div>
-                <div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">Node.js · Python</div>
-              </div>
+            <div class="flex items-center gap-3">
+              <div class="hidden h-px w-10 border-t border-dashed border-[#c7d2fe] sm:block"></div>
+              <div><div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Backend</div><div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">Node.js · Python</div></div>
             </div>
-            <div class="flex items-start gap-4">
-              <div class="mt-1.5 hidden h-px w-12 border-t border-dashed border-[#c7d2fe] sm:block" aria-hidden="true"></div>
-              <div>
-                <div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Data</div>
-                <div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">Databases</div>
-              </div>
+            <div class="flex items-center gap-3">
+              <div class="hidden h-px w-10 border-t border-dashed border-[#c7d2fe] sm:block"></div>
+              <div><div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Data</div><div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">Databases</div></div>
             </div>
-            <div class="flex items-start gap-4">
-              <div class="mt-1.5 hidden h-px w-12 border-t border-dashed border-[#c7d2fe] sm:block" aria-hidden="true"></div>
-              <div>
-                <div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Automation</div>
-                <div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">Google Apps Script · Automation</div>
-              </div>
+            <div class="flex items-center gap-3">
+              <div class="hidden h-px w-10 border-t border-dashed border-[#c7d2fe] sm:block"></div>
+              <div><div class="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Automation</div><div class="mt-1 font-body text-[13px] leading-snug text-[#111827]">Google Apps Script · Automation</div></div>
             </div>
           </div>
         </div>
