@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+
+    <title>Nexisploit: All-in-One Android ADB Toolkit | James Kissi</title>
+
+    <meta name="description" content="A command-line toolkit for working on Android devices over ADB, scrcpy and Metasploit. One typed number, 165 tools, and read-only security checks built in." />
+    <meta property="og:title" content="Nexisploit: All-in-One Android ADB Toolkit" />
+    <meta property="og:description" content="A command-line toolkit for working on Android devices over ADB, scrcpy and Metasploit. One typed number, 165 tools, and read-only security checks built in." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://portfolio-3r17-wheat.vercel.app/work/nexisploit.html" />
+    <meta property="og:image" content="https://portfolio-3r17-wheat.vercel.app/assets/img/work/nexisploit/01-main-menu.png" />
+    <meta property="og:site_name" content="James Kissi Portfolio" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="canonical" href="https://portfolio-3r17-wheat.vercel.app/work/nexisploit.html" />
+    <link crossorigin="crossorigin" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link crossorigin="anonymous" href="/assets/styles/main.min.css" media="screen" rel="stylesheet" />
+    <style>
+      .screens-carousel {
+        display: flex;
+        align-items: stretch;
+        gap: 20px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 24px;
+        -webkit-overflow-scrolling: touch;
+        padding: 4px 4px 12px;
+        margin-top: 28px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .screens-carousel::-webkit-scrollbar {
+        display: none;
+      }
+      .screens-carousel-wrap {
+        position: relative;
+        margin-top: 28px;
+      }
+      .screens-carousel-wrap .screens-carousel {
+        margin-top: 0;
+      }
+      .screens-carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 9999px;
+        background: rgba(17, 24, 39, 0.92);
+        color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.22);
+        transition: background 160ms ease, opacity 160ms ease, transform 160ms ease;
+      }
+      .screens-carousel-btn:hover:not(:disabled) {
+        background: #2563eb;
+      }
+      .screens-carousel-btn:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+      .screens-carousel-btn.prev {
+        left: -6px;
+      }
+      .screens-carousel-btn.next {
+        right: -6px;
+      }
+      .screens-carousel-btn i {
+        font-size: 28px;
+        line-height: 1;
+      }
+      @media (max-width: 767px) {
+        .screens-carousel-btn {
+          width: 38px;
+          height: 38px;
+        }
+        .screens-carousel-btn.prev {
+          left: 2px;
+        }
+        .screens-carousel-btn.next {
+          right: 2px;
+        }
+        .screens-carousel-btn i {
+          font-size: 24px;
+        }
+      }
+      .screen-card {
+        flex: 0 0 min(86%, 560px);
+        scroll-snap-align: center;
+        margin: 0;
+        background: #111827;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+        display: flex;
+        flex-direction: column;
+      }
+      @media (min-width: 768px) {
+        .screen-card {
+          flex-basis: min(72%, 560px);
+        }
+      }
+      .screen-card img {
+        display: block;
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        object-position: top center;
+        background: #0b1220;
+        cursor: zoom-in;
+      }
+      @media (min-width: 768px) {
+        .screen-card img {
+          height: 280px;
+        }
+      }
+      .screen-card.term {
+        flex: 0 0 min(92%, 720px);
+      }
+      @media (min-width: 768px) {
+        .screen-card.term {
+          flex-basis: min(82%, 820px);
+        }
+      }
+      .screen-card.term.wide {
+        flex: 0 0 min(96%, 860px);
+      }
+      .screen-card.term img {
+        height: 260px;
+        object-fit: contain;
+        background: #0c0c0c;
+        object-position: center top;
+      }
+      @media (min-width: 768px) {
+        .screen-card.term img {
+          height: 380px;
+        }
+      }
+      .screen-card.term.tall img {
+        height: 380px;
+      }
+      @media (min-width: 768px) {
+        .screen-card.term.tall img {
+          height: 520px;
+        }
+      }
+      .screen-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(2, 6, 23, 0.92);
+        padding: 20px;
+      }
+      .screen-lightbox[aria-hidden="false"] {
+        display: flex;
+      }
+      .screen-lightbox-dialog {
+        position: relative;
+        width: min(1100px, calc(100vw - 64px));
+        height: min(84vh, calc(100vh - 64px));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .screen-lightbox-stage {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        cursor: default;
+        touch-action: none;
+        padding: 56px 28px 76px;
+        box-sizing: border-box;
+      }
+      .screen-lightbox.is-zoomed .screen-lightbox-stage {
+        cursor: grab;
+      }
+      .screen-lightbox.is-zoomed .screen-lightbox-img {
+        cursor: grab;
+      }
+      .screen-lightbox:not(.is-zoomed) .screen-lightbox-img {
+        cursor: pointer;
+      }
+      .screen-lightbox-stage.is-dragging {
+        cursor: grabbing;
+      }
+      .screen-lightbox-img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        transform-origin: center center;
+        user-select: none;
+        -webkit-user-drag: none;
+        will-change: transform;
+        cursor: zoom-in;
+      }
+      .screen-lightbox-controls {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        display: flex;
+        gap: 8px;
+        z-index: 2;
+      }
+      .screen-lightbox-btn {
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 9999px;
+        background: rgba(17, 24, 39, 0.88);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .screen-lightbox-btn:hover {
+        background: #2563eb;
+      }
+      .screen-lightbox-btn i {
+        font-size: 22px;
+        line-height: 1;
+      }
+      .screen-lightbox-caption {
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 2;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(17, 24, 39, 0.72);
+        color: rgba(255, 255, 255, 0.9);
+        font-family: "Open Sans", system-ui, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .screen-card figcaption {
+        padding: 14px 16px 16px;
+        font-family: "Open Sans", system-ui, sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.82);
+        white-space: normal;
+        overflow-wrap: anywhere;
+        flex: 1 1 auto;
+      }
+      .screen-card figcaption strong {
+        color: #ffffff;
+        font-weight: 600;
+      }
+      /* Hero thumbnail fallbacks (compiled Tailwind may omit these utilities) */
+      .aspect-video { aspect-ratio: 16 / 9; }
+      .rounded-2xl { border-radius: 1rem; }
+      .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45); }
+      .mb-20 { margin-bottom: 5rem; }
+      .overflow-hidden { overflow: hidden; }
+      .relative { position: relative; }
+      .h-full { height: 100%; }
+      .object-cover { object-fit: cover; }
+      .transition-transform { transition-property: transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+      .duration-500 { transition-duration: 500ms; }
+      .group:hover .group-hover\:scale-\[1\.02\] { transform: scale(1.02); }
+    </style>
+  </head>
+
+  <body class="relative bg-white">
+    <header class="sticky top-0 z-40 border-b border-grey-60 bg-white">
+      <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4">
+        <a href="/" aria-label="James Kissi home">
+          <img src="/assets/img/logo-dark.svg" class="w-20 lg:w-28" alt="James Kissi" />
+        </a>
+        <a
+          href="/#portfolio"
+          class="font-header text-xs font-bold uppercase tracking-widest text-primary hover:text-secondary sm:text-sm"
+          >&larr; All projects</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <section class="mx-auto w-full max-w-5xl px-4 pb-10 pt-14 md:pt-20">
+        <p class="font-header text-xs font-bold uppercase tracking-widest text-primary">Case study</p>
+        <h1 class="mt-4 font-header text-3xl font-semibold leading-tight text-secondary sm:text-4xl lg:text-5xl">
+          Nexisploit: All-in-One Android ADB Toolkit
+        </h1>
+        <p class="mt-5 max-w-3xl font-body text-lg leading-relaxed text-grey-10">A command-line toolkit for working on Android devices over ADB, scrcpy and Metasploit. One typed number, 165 tools, and read-only security checks built in.</p>
+
+        <dl class="mt-9 grid grid-cols-1 gap-6 border-t border-grey-60 pt-7 sm:grid-cols-3">
+          <div>
+            <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Role</dt>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Design &amp; Python development, built on an open-source base</dd>
+          </div>
+          <div>
+            <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Stack</dt>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Python, Rich, ADB, scrcpy, Nmap, Metasploit</dd>
+          </div>
+          <div>
+            <dt class="font-header text-xs font-bold uppercase tracking-widest text-grey-40">Platform</dt>
+            <dd class="mt-1 font-body text-base font-semibold text-secondary">Windows, Linux and macOS command line</dd>
+          </div>
+        </dl>
+        <p class="mt-6 font-body text-xs leading-5 text-grey-40">Extended from <a href="https://github.com/AzeemIdrisi/PhoneSploit-Pro" target="_blank" rel="noreferrer" class="text-primary underline-offset-2 hover:underline">PhoneSploit Pro by Azeem Idrisi</a>, released under the GNU GPL v3. Maintained as <a href="https://github.com/Nexify815/nexisploit" target="_blank" rel="noreferrer" class="text-primary underline-offset-2 hover:underline">github.com/Nexify815/nexisploit</a>.</p>
+      </section>
+
+      <!-- Hero image pending. -->
+
+      <section class="mx-auto w-full max-w-4xl px-4 pb-2 pt-4 md:pt-6">
+        <h2 class="font-header text-2xl font-semibold text-secondary sm:text-3xl">Screens <span class="ml-2 font-body text-sm font-normal normal-case tracking-normal text-grey-40 sm:text-base">(click image to expand)</span></h2>
+        <div class="screens-carousel-wrap">
+          <button type="button" class="screens-carousel-btn prev" aria-label="Previous screenshot"><i class="bx bx-chevron-left" aria-hidden="true"></i></button>
+          <div class="screens-carousel" aria-label="Project screenshots">
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/01-main-menu.png"
+                alt="Main menu with recent tools and 15 toolkit groups"
+                loading="lazy"
+              />
+              <figcaption><strong>Main menu.</strong> The 15 toolkits, with the six most recent tools pinned above them and a live device status in the corner.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/02-device-connection.png"
+                alt="Device &amp; Connection group menu"
+                loading="lazy"
+              />
+              <figcaption><strong>Device &amp; Connection.</strong> 18 tools for linking, discovering and identifying devices over USB and Wi-Fi.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/03-control-interface.png"
+                alt="Control &amp; Interface group menu"
+                loading="lazy"
+              />
+              <figcaption><strong>Control &amp; Interface.</strong> The longest menu, with 26 tools for input, keycodes, notifications and lockscreen.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/04-security-attacks.png"
+                alt="Security &amp; Attacks group menu"
+                loading="lazy"
+              />
+              <figcaption><strong>Security &amp; Attacks.</strong> 14 read-only posture checks, from security patch to exported components.</figcaption>
+            </figure>
+            <figure class="screen-card term tall">
+              <img
+                src="/assets/img/work/nexisploit/05-posture-report.png"
+                alt="Full security posture report across the device"
+                loading="lazy"
+              />
+              <figcaption><strong>Security posture report.</strong> Every read-only check in one run, with OK, REVIEW and RISK across all 12 sections.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/06-patch-level.png"
+                alt="Security patch level report"
+                loading="lazy"
+              />
+              <figcaption><strong>Patch level.</strong> Android version, API level, build date and security patch, one check at a time.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/07-battery-health.png"
+                alt="Battery health report from the device sysfs"
+                loading="lazy"
+              />
+              <figcaption><strong>Battery health.</strong> Wear from sysfs: capacity, cycle count, temperature, current draw and projected life.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/08-screen-time.png"
+                alt="Screen time report computed from usage events"
+                loading="lazy"
+              />
+              <figcaption><strong>Screen time.</strong> Per-app foreground seconds from usagestats events, with sessions and the busiest hour.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/09-live-dashboard.png"
+                alt="Live performance dashboard with CPU, RAM, battery and network"
+                loading="lazy"
+              />
+              <figcaption><strong>Live dashboard.</strong> CPU, RAM, battery and network in one view, sampled every second.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/10-wifi-monitor.png"
+                alt="Wi-Fi monitor with RSSI and band information"
+                loading="lazy"
+              />
+              <figcaption><strong>Wi-Fi monitor.</strong> Live RSSI, channel, band and link speed, with a signal history sparkline.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/11-notification-wall.png"
+                alt="Notification wall grouped by app"
+                loading="lazy"
+              />
+              <figcaption><strong>Notification wall.</strong> Active notifications grouped by app, sized by count.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/12-route-tracker.png"
+                alt="Route tracker with GPS fixes and distance"
+                loading="lazy"
+              />
+              <figcaption><strong>Route tracker.</strong> GPS fixes, accuracy, altitude and distance, with haversine totals.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/13-camera-discovery.png"
+                alt="Camera discovery listing cameras and sizes probed from scrcpy"
+                loading="lazy"
+              />
+              <figcaption><strong>Camera discovery.</strong> Sizes and frame rates probed from scrcpy, never guessed.</figcaption>
+            </figure>
+            <figure class="screen-card term wide">
+              <img
+                src="/assets/img/work/nexisploit/14-scan-network.png"
+                alt="Network scan finding ADB targets on the LAN"
+                loading="lazy"
+              />
+              <figcaption><strong>Scan network.</strong> Hosts found with nmap, then ADB ports identified and Android fingerprinted.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/15-installed-apps.png"
+                alt="Third-party installed apps list"
+                loading="lazy"
+              />
+              <figcaption><strong>Installed apps.</strong> Third-party packages, listed and numbered for the next action.</figcaption>
+            </figure>
+            <figure class="screen-card term wide">
+              <img
+                src="/assets/img/work/nexisploit/16-logcat.png"
+                alt="Colored logcat output with level tags"
+                loading="lazy"
+              />
+              <figcaption><strong>Logcat.</strong> Coloured level tags, hanging indents and wrapped columns for readable logs.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/17-disk-doctor.png"
+                alt="Disk Space Doctor showing biggest folders and files"
+                loading="lazy"
+              />
+              <figcaption><strong>Disk Space Doctor.</strong> Biggest folders, largest files and cleanup hints, dry-run first.</figcaption>
+            </figure>
+            <figure class="screen-card term">
+              <img
+                src="/assets/img/work/nexisploit/18-msf-payloads.png"
+                alt="Available Android msfvenom payloads catalogue"
+                loading="lazy"
+              />
+              <figcaption><strong>Payload catalogue.</strong> Read-only list of Android msfvenom payloads; nothing is generated.</figcaption>
+            </figure>
+          </div>
+          <button type="button" class="screens-carousel-btn next" aria-label="Next screenshot"><i class="bx bx-chevron-right" aria-hidden="true"></i></button>
+        </div>
+      </section>
+
+      <article class="mx-auto w-full max-w-5xl px-4 py-12 md:py-16">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
+          <aside class="lg:col-span-3">
+            <nav class="case-study-nav flex flex-wrap gap-2 lg:sticky lg:top-24 lg:flex-col lg:gap-1" aria-label="Sections">
+              <a href="#the-problem" class="case-link rounded-lg px-3 py-2 font-body text-sm font-semibold text-[#2563eb] bg-[#eaf1ff]">The problem</a>
+              <a href="#what-i-built" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">What I built</a>
+              <a href="#how-it-is-built" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">How it is built</a>
+              <a href="#decisions" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Decisions that mattered</a>
+              <a href="#outcome" class="case-link rounded-lg px-3 py-2 font-body text-sm text-[#555555] hover:bg-[#f4f8ff]">Outcome</a>
+            </nav>
+          </aside>
+          <div class="lg:col-span-9 space-y-12">
+            <section id="the-problem" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">The problem</h2>
+              <div class="mt-4 rounded-lg border-l-4 border-[#2563eb] bg-[#eef4ff] p-5 font-body text-base leading-7 text-[#1f2937]">Work over an Android phone from a laptop normally means raw adb incantations and a pile of half-finished scripts. The toolkit that already existed had grown wide rather than usable: 26 hubs on the front page, most of them shells over a shell, an external audit binary nobody else had installed, and state-changing actions one accidental number away from wiping data.</div>
+            </section>
+
+            <section id="what-i-built" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">What I built</h2>
+              <p class="mt-3 font-body text-base leading-7 text-[#4b5563]">An extended version of the open-source PhoneSploit Pro toolkit, rebuilt into Nexisploit: 165 tools across 15 verb-based groups, a live device status in the menu, a 12-section security posture report, four continuous monitors and reports that run entirely against a connected phone.</p>
+              <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">01</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Everything two keystrokes deep</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">15 groups, one numbered menu, six most-recent tools pinned on top, plus fuzzy search and an always-visible device status.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">02</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Native security checks</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">14 read-only checks from patch level to verified boot, reimplemented against adb; no external audit binary needed.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">03</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Remote camera</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Discovery, live view, recording, motion detection and diagnostics, with sizes probed from scrcpy instead of guessed.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">04</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Continuous monitors</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Performance dashboard, Wi-Fi monitor, route tracker and notification wall; one batched adb call per tick.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">05</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">HUD overlay</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">An OpenCV heads-up display drawn over the mirrored screen: element boxes, touch points and a live telemetry panel.</p></div>
+                <div class="rounded-xl bg-[#f1f5fb] p-4"><div class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#2563eb] font-body text-[11px] font-bold text-white">06</div><h3 class="mt-2.5 font-body text-sm font-semibold text-[#111827]">Reports and maintenance</h3><p class="mt-1 font-body text-xs leading-5 text-[#4b5563]">Battery wear, screen time, disk doctor, targeted cache cleanup; dry-run first, typed confirmation before anything deletes.</p></div>
+              </div>
+            </section>
+
+            <section id="how-it-is-built" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">How it is built</h2>
+              <div class="mt-4 grid grid-cols-2 gap-4 md:grid-cols-4">
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Language</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">Python 3.10+</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Rich tables, panels and live regions for the whole UI</div></div>
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Device plane</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">ADB + scrcpy</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">USB or wireless, with capability probing over guessed flags</div></div>
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Network</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">Nmap</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">Discovery and ADB 5555 fingerprinting on the LAN</div></div>
+                <div class="rounded-xl border border-[#e2e8f0] bg-white p-4"><div class="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb]">Attack flow</div><div class="mt-1.5 font-body text-sm font-semibold text-[#111827]">Metasploit</div><div class="mt-1 font-body text-[11px] leading-4 text-[#6b7280]">msfvenom and msfconsole for the one-click payload flow</div></div>
+              </div>
+              <p class="mt-3 font-body text-xs text-[#6b7280]">Runs on a laptop; everything the tool needs the phone already has, beyond developer options and USB debugging.</p>
+            </section>
+
+            <section id="decisions" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Decisions that mattered</h2>
+              <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Numbered menu, not a cursor UI</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">The arrow-key frame drifted and overflowed depending on prior output, so the toolkit dropped cursor escapes and scrolls like any CLI. Group first, number second.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Group by verb, not object</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">A tool that pushes a file from this PC is a file operation even when the file is a photo. Host-side work gets its own group, so the menu reads verbs, not nouns.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Native audits, no HARDAX</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">The 98 references to an external audit binary were reimplemented as 14 getprop/settings reads with OK, REVIEW and RISK, so the checks run anywhere adb runs.</p></div>
+                <div class="rounded-lg border border-[#e2e8f0] border-t-[3px] border-t-[#2563eb] bg-white p-4"><h3 class="font-body text-sm font-semibold text-[#111827]">Guards where state changes</h3><p class="mt-1.5 font-body text-xs leading-5 text-[#4b5563]">Destructive handlers ask for a typed YES, cleanup tools dry-run first, and read-only diagnostics never reach the device&apos;s state.</p></div>
+              </div>
+            </section>
+
+            <section id="outcome" class="case-section scroll-mt-24">
+              <h2 class="font-header text-2xl font-semibold text-[#111827]">Outcome</h2>
+              <div class="mt-4 rounded-lg border-l-4 border-[#2563eb] bg-[#eef4ff] p-5 font-body text-base leading-7 text-[#1f2937]">A 165-tool ADB toolkit in which the most common phone tasks are never more than two keystrokes away, the read-only audits run anywhere adb runs, and the sharp edges are behind confirmations. Extended from PhoneSploit Pro by Azeem Idrisi, released under the GNU GPL v3.</div>
+            </section>
+          </div>
+        </div>
+      </article>
+
+      <nav class="mx-auto w-full max-w-5xl px-4 pb-16" aria-label="Project navigation">
+        <div class="flex flex-col gap-4 border-t border-grey-60 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <a
+            href="/#portfolio"
+            class="font-header text-sm font-bold uppercase tracking-widest text-grey-40 hover:text-primary"
+            >&larr; All projects</a
+          >
+          <a href="/work/lan-exam.html" class="group text-left sm:text-right">
+            <span class="block font-header text-xs font-bold uppercase tracking-widest text-grey-40">Next project</span>
+            <span class="mt-1 block font-header text-lg font-semibold text-secondary group-hover:text-primary"
+              >Offline-First LAN Examination System</span
+            >
+          </a>
+        </div>
+      </nav>
+    </main>
+
+    <div class="bg-primary">
+      <div class="container flex flex-col justify-between py-6 sm:flex-row">
+        <p class="text-center font-body text-white md:text-left">
+          &copy; Copyright 2026. James Kissi. All rights reserved.
+        </p>
+        <div class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0">
+          <a href="https://github.com/Nexify815" target="_blank" rel="noreferrer">
+            <i class="bx bxl-github text-2xl text-white hover:text-yellow"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/james-kissi-80b7232a4/" target="_blank" rel="noreferrer" class="pl-4">
+            <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/screens-carousel.js"></script>
+    <script src="/assets/js/screens-lightbox.js"></script>
+    <script>
+      (function () {
+        var links = document.querySelectorAll('.case-link');
+        var sections = document.querySelectorAll('.case-section');
+        if (!links.length || !sections.length) return;
+        function setActive(id) {
+          links.forEach(function (l) {
+            var on = l.getAttribute('href') === '#' + id;
+            l.classList.toggle('bg-[#eaf1ff]', on);
+            l.classList.toggle('text-[#2563eb]', on);
+            l.classList.toggle('font-semibold', on);
+            l.classList.toggle('text-[#555555]', !on);
+          });
+        }
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) { if (entry.isIntersecting) setActive(entry.target.id); });
+        }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+        sections.forEach(function (s) { obs.observe(s); });
+        links.forEach(function (l) { l.addEventListener('click', function () { setActive(l.getAttribute('href').slice(1)); }); });
+      })();
+    </script>
+  </body>
+</html>
